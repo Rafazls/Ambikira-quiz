@@ -1,0 +1,153 @@
+[
+    {
+        "pergunta": "Quais são as principais dificuldades enfrentadas por estudantes de baixa renda em relação à educação?",
+        "alternativas": {
+            "A": "Acesso limitado a recursos educacionais",
+            "B": "Falta de interesse nos estudos",
+            "C": "Incompatibilidade de horários com o trabalho",
+            "D": "Baixa qualidade do ensino público"
+        },
+        "alternativaCorreta": "A"
+    },
+    {
+        "pergunta": "Qual é o conceito de 'analfabetismo funcional' na educação?",
+        "alternativas": {
+            "A": "Incapacidade de ler e escrever",
+            "B": "Habilidade limitada de aplicar conhecimentos em situações reais",
+            "C": "Falta de escolaridade formal",
+            "D": "Ausência de domínio em alguma disciplina específica"
+        },
+        "alternativaCorreta": "B"
+    },
+    {
+        "pergunta": "Quais são os órgãos responsáveis pelo financiamento da educação pública no Brasil?",
+        "alternativas": {
+            "A": "Ministério da Educação (MEC)",
+            "B": "Conselho Nacional de Educação (CNE)",
+            "C": "Fundo Nacional de Desenvolvimento da Educação (FNDE)",
+            "D": "Congresso Nacional"
+        },
+        "alternativaCorreta": "C"
+    },
+    {
+        "pergunta": "Quais são as principais teorias de aprendizagem que influenciam a prática educacional?",
+        "alternativas": {
+            "A": "Behaviorismo, Cognitivismo, Construtivismo e Humanismo",
+            "B": "Estruturalismo, Funcionalismo, Behaviorismo e Gestalt",
+            "C": "Humanismo, Behaviorismo, Ecletismo e Psicanálise",
+            "D": "Construtivismo, Cognitivismo, Behaviorismo e Ecletismo"
+        },
+        "alternativaCorreta": "A"
+    },
+    {
+        "pergunta": "O que é a Base Nacional Comum Curricular (BNCC) no contexto da educação brasileira?",
+        "alternativas": {
+            "A": "Um documento que estabelece o currículo único para todas as etapas e modalidades da Educação Básica",
+            "B": "Um órgão responsável pela regulamentação do ensino superior no Brasil",
+            "C": "Um programa de intercâmbio educacional entre escolas públicas e privadas",
+            "D": "Um projeto de pesquisa sobre a qualidade do ensino nas escolas"
+        },
+        "alternativaCorreta": "A"
+    },
+    {
+        "pergunta": "Como a tecnologia pode ser aplicada para melhorar o processo educacional?",
+        "alternativas": {
+            "A": "Facilitando a automatização de todas as atividades escolares",
+            "B": "Permitindo a substituição completa de professores por programas de computador",
+            "C": "Facilitando o acesso a recursos educacionais e estimulando a interatividade no aprendizado",
+            "D": "Limitando o acesso à informação para evitar distrações durante as aulas"
+        },
+        "alternativaCorreta": "C"
+    },
+    {
+        "pergunta": "Quais são os principais desafios enfrentados pelos professores na atualidade?",
+        "alternativas": {
+            "A": "Salários baixos e falta de reconhecimento profissional",
+            "B": "Falta de qualificação e desinteresse dos alunos",
+            "C": "Dificuldades em lidar com a tecnologia na sala de aula",
+            "D": "Poucas oportunidades de capacitação e atualização profissional"
+        },
+        "alternativaCorreta": "A"
+    },
+    {
+        "pergunta": "Qual é a relação entre a educação inclusiva e a valorização da diversidade nas escolas?",
+        "alternativas": {
+            "A": "A educação inclusiva busca oferecer oportunidades iguais para todos, independentemente das diferenças",
+            "B": "A valorização da diversidade é um conceito ultrapassado e não tem relação com a educação inclusiva",
+            "C": "A educação inclusiva é exclusiva para pessoas com necessidades especiais",
+            "D": "A valorização da diversidade é um obstáculo para a eficiência do ensino nas escolas"
+        },
+        "alternativaCorreta": "A"
+    },
+    {
+        "pergunta": "O que é a 'pedagogia libertadora' e quem é seu principal proponente?",
+        "alternativas": {
+            "A": "Uma abordagem de ensino centrada no aluno, proposta por Jean Piaget",
+            "B": "Um modelo de educação tradicional, defendido por Lev Vygotsky",
+            "C": "Uma proposta de ensino crítico e emancipador, desenvolvida por Paulo Freire",
+            "D": "Uma teoria da aprendizagem social, criada por Albert Bandura"
+        },
+        "alternativaCorreta": "C"
+    },
+    {
+        "pergunta": "Quais são os principais indicadores de qualidade da educação utilizados internacionalmente?",
+        "alternativas": {
+            "A": "Investimento por aluno, quantidade de professores e infraestrutura escolar",
+            "B": "Taxa de alfabetização, desempenho em exames padronizados e taxa de abandono escolar",
+            "C": "Média de idade dos alunos, participação em atividades extracurriculares e taxa de retenção escolar",
+            "D": "Grau de satisfação dos alunos, currículo escolar e avaliação de pais e responsáveis"
+        },
+        "alternativaCorreta": "B"
+    },
+    {
+        "pergunta": "Quais são os principais desafios enfrentados na implementação de políticas de educação a distância?",
+        "alternativas": {
+            "A": "Falta de recursos tecnológicos, baixa interação entre alunos e dificuldades na avaliação de aprendizado",
+            "B": "Acesso limitado à internet, desinteresse dos professores e baixa flexibilidade de horários",
+            "C": "Resistência dos estudantes à modalidade online, problemas de segurança e custos elevados",
+            "D": "Ausência de capacitação de professores, dificuldade na estruturação dos cursos e falta de material didático apropriado"
+        },
+        "alternativaCorreta": "A"
+    },
+    {
+        "pergunta": "O que é a 'pedagogia do afeto' e como ela se aplica na prática educacional?",
+        "alternativas": {
+            "A": "É uma abordagem que prioriza o desenvolvimento das habilidades afetivas dos alunos e sua relação com os outros.",
+            "B": "É uma teoria que enfatiza a importância do ambiente físico das escolas para o bem-estar dos estudantes.",
+            "C": "É um método que incentiva a expressão emocional dos alunos, mas não possui aplicação prática nas escolas.",
+            "D": "É uma estratégia que proíbe qualquer tipo de punição nas escolas, visando preservar o afeto entre alunos e professores."
+        },
+        "alternativaCorreta": "A"
+    },
+    {
+        "pergunta": "Quais são os principais impactos da desigualdade social na educação?",
+        "alternativas": {
+            "A": "Redução do investimento em educação, aumento da evasão escolar e falta de acesso a recursos educacionais",
+            "B": "Maior interesse dos alunos nos estudos, melhores oportunidades de aprendizado e diminuição do analfabetismo",
+            "C": "Aumento da participação dos pais na educação, maior investimento em tecnologia e melhoria na infraestrutura escolar",
+            "D": "Estímulo à competitividade entre alunos, melhoria na qualidade do ensino e maior motivação dos professores"
+        },
+        "alternativaCorreta": "A"
+    },
+    {
+        "pergunta": "Qual é o papel dos pais no processo educacional de seus filhos?",
+        "alternativas": {
+            "A": "Deixar inteiramente nas mãos da escola a responsabilidade pela educação dos filhos",
+            "B": "Auxiliar na realização das tarefas escolares e acompanhar o desempenho dos filhos",
+            "C": "Influenciar o currículo escolar e controlar as atividades dos professores em sala de aula",
+            "D": "Evitar qualquer interferência na vida escolar dos filhos para estimular a independência"
+        },
+        "alternativaCorreta": "B"
+    },
+    {
+        "pergunta": "Quais são os principais desafios enfrentados pelos estudantes com deficiência na inclusão escolar?",
+        "alternativas": {
+            "A": "Falta de infraestrutura adequada nas escolas, preconceito e pouca qualificação dos professores",
+            "B": "Pouco interesse dos próprios alunos, falta de adaptação curricular e desinteresse dos colegas de classe",
+            "C": "Dificuldade em acompanhar o ritmo da turma, falta de acessibilidade e dificuldade de comunicação",
+            "D": "Despreparo das famílias, falta de recursos tecnológicos e baixo investimento do governo"
+        },
+        "alternativaCorreta": "C"
+    }
+    
+]
