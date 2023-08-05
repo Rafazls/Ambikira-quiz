@@ -18,7 +18,6 @@ export default function Question({
   useEffect(() => {
     setSelected(null);
   }, [questaoAtual]);
-  const fadeAnim = useRef(new Animated.Value(0)).current; // Initial
 
   function updateQuestion(resposta) {
     const respostasCopy = [...respostasObject.respostas];
@@ -40,7 +39,7 @@ export default function Question({
             fontFamily: "PassionOne700",
             maxWidth: "90%",
             color: "#FFF",
-            fontSize: 24,
+            fontSize: 22,
             textAlign: "center",
           }}
         >

@@ -12,10 +12,6 @@ function sortearQuestoes() {
   const questionsSorted = [];
   for (let i = 0; i < 10; i++) {
     let randomNumberQuestion = Math.floor(Math.random() * questions.length);
-    console.log(
-      randomNumberQuestion,
-      questionsSorted.includes(randomNumberQuestion)
-    );
     while (questionsSorted.includes(randomNumberQuestion)) {
       randomNumberQuestion = Math.floor(Math.random() * questions.length);
     }
@@ -47,20 +43,19 @@ export default function QuestionPage({ navigation, route }) {
   const [questionsSelected, setQuestionsSelected] = useState([]);
   const [numberQuestion, setNumberQuestion] = useState(0);
   const [tempo, setTempo] = useState(120);
-
+  let interval = null;
   function startTimer(setTempo) {
     let segundos = 0;
-    clearImmediate(myInterval);
     const myInterval = setInterval(() => {
       if (segundos === 120) {
-        endQuiz();
-        clearInterval(myInterval);
+        endQuiz(myInterval);
       }
       segundos++;
       setTempo(120 - segundos);
     }, 1000);
+    return myInterval;
   }
-  function endQuiz() {
+  function endQuiz(interval) {
     let points = 0;
     for (let index in questionsSelected) {
       console.log(
@@ -72,11 +67,13 @@ export default function QuestionPage({ navigation, route }) {
       }
     }
     console.log(points);
+    clearInterval(interval);
+    navigation.navigate("Finish");
   }
 
   useEffect(() => {
     setQuestionsSelected(sortearQuestoes());
-    startTimer(setTempo);
+    interval = startTimer(setTempo);
   }, []);
   if (!fontsLoaded || questionsSelected.length === 0) {
     return null;
@@ -101,12 +98,12 @@ export default function QuestionPage({ navigation, route }) {
           respostasObject={{ respostas, setRespostas }}
         />
       </View>
-      <View style={{ width: "100%", marginTop: 16, alignItems: "center" }}>
+      <View style={{ width: "100%", marginTop: 8, alignItems: "center" }}>
         {numberQuestion === 9 ? (
           <TouchableOpacity
             style={styles.nextQuestionButton}
             onPress={() => {
-              endQuiz();
+              endQuiz(interval);
             }}
           >
             <Text
@@ -175,7 +172,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    marginVertical: 48,
+    marginVertical: 16,
     marginHorizontal: 44,
   },
   textTime: {
