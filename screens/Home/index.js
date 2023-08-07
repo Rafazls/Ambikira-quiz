@@ -4,16 +4,18 @@ import vect1 from '../../assets/home_assets/grup1.png'
 import vect2 from '../../assets/home_assets/grup2.png'
 import logo from '../../assets/home_assets/logo.png'
 import { TextInput } from "@react-native-material/core";
-import {IP_LOCALHOST} from "@env"
+import { cpf } from "cpf-cnpj-validator";
+// import {IP_LOCALHOST} from "@env"
 
+function verifiyCPF(getcpf){
+ const num = getcpf
+ console.log(cpf.isValid(num))
+}
 
 const getusersforverify = async () => {
-  const request = new Request(`http://${IP_LOCALHOST}/verify`, {
+  const request = new Request("http://192.168.15.4:3333/users", {
     method  : 'POST',  
-  headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
+    //Teste 
     body: JSON.stringify({
       id:4 ,
       name: "Neymar",
@@ -24,7 +26,6 @@ const getusersforverify = async () => {
       pontos: 5
     }),
 });
-console.log(request)
 fetch(request)
   .then((response) => {
     if (response.status === 200) {
@@ -150,14 +151,17 @@ export default function Home({ navigation, route }) {
             variant="standard"
             value={gettel} 
             onChangeText={tel}
+            keyboardType="number-pad"
           />
         </View>
 
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
-            getusersforverify();
+            
+           verifiyCPF(getcpf);
             navigation.navigate("Questions");
+           getusersforverify();
           }}>
           <Text>COMEÇAR O JOGO</Text>
         </TouchableOpacity>
