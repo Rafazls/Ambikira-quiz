@@ -1,13 +1,55 @@
 import { Text, View, StyleSheet, TouchableOpacity, Image } from "react-native";
-import React from "react";
-import vect1 from '../../assets/grup1.png'
-import vect2 from '../../assets/grup2.png'
-import logo from '../../assets/logo.png'
+import React, { useEffect, useState } from "react";
+import vect1 from '../../assets/home_assets/grup1.png'
+import vect2 from '../../assets/home_assets/grup2.png'
+import logo from '../../assets/home_assets/logo.png'
 import { TextInput } from "@react-native-material/core";
+import {IP_LOCALHOST} from "@env"
 
 
+const getusersforverify = async () => {
+  const request = new Request(`http://${IP_LOCALHOST}/verify`, {
+    method  : 'POST',  
+  headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      id:4 ,
+      name: "Neymar",
+      email: "sd@gmail.com",
+      cpf: "12345678915",
+      tel: "11982277878",
+      time: 10,
+      pontos: 5
+    }),
+});
+console.log(request)
+fetch(request)
+  .then((response) => {
+    if (response.status === 200) {
+      return response.json();
+    } else {
+      throw new Error("Something went wrong on API server!");
+    }
+  })
+  .then((response) => {
+    console.debug(response);
+    // …
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+};
 
 export default function Home({ navigation, route }) {
+
+  const [getname, name] = useState("") //Armazenando os valores
+  const [getemail, email] = useState("") //Armazenando os valores
+  const [getcpf,cpf] = useState("") //Armazenando os valores
+  const [gettel, tel] = useState("") //Armazenando os valores
+
+
   return (
     /* Container */
     <View style={styles.container}>
@@ -62,32 +104,38 @@ export default function Home({ navigation, route }) {
 
         {/* Nome */}
         <View style={styles.forms}>
-          <Image source={require('../../assets/user.png')} style={styles.icons} />
+          <Image source={require('../../assets/home_assets/user.png')} style={styles.icons} />
           <TextInput
             style={styles.input}
             label="Nome"
             variant="standard"
+            value={getname} 
+            onChangeText={name}
           />
         </View>
 
         {/* Email */}
-        <View style={styles.forms}>
-        <Image source={require('../../assets/mail.png')} style={styles.icons} />
+        <View style={styles.forms}> 
+        <Image source={require('../../assets/home_assets/mail.png')} style={styles.icons} />
           <TextInput
             label="Email"
             style={styles.input}
             variant="standard"
+            value={getemail} 
+            onChangeText={email}
           />
         </View>
 
         {/* CPF */}
         <View style={styles.forms}>
-        <Image source={require('../../assets/cpf.png')} style={styles.icons} />
+        <Image source={require('../../assets/home_assets/cpf.png')} style={styles.icons} />
           <TextInput
             label="CPF"
             style={styles.input}
             keyboardType="number-pad"
             variant="standard"
+            value={getcpf} 
+            onChangeText={cpf}
           />
 
         </View>
@@ -95,17 +143,20 @@ export default function Home({ navigation, route }) {
 
         {/* Telefone */}
         <View style={styles.forms}>
-        <Image source={require('../../assets/call.png')} style={styles.icons} />
+        <Image source={require('../../assets/home_assets/call.png')} style={styles.icons} />
           <TextInput
             label="Telefone"
             style={styles.input}
             variant="standard"
+            value={gettel} 
+            onChangeText={tel}
           />
         </View>
 
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
+            getusersforverify();
             navigation.navigate("Questions");
           }}>
           <Text>COMEÇAR O JOGO</Text>
