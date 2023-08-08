@@ -159,6 +159,7 @@ export default function QuestionPage({ navigation, route }) {
         }}
         resizeMode="contain"
       />
+
     </View>
   );
 }
