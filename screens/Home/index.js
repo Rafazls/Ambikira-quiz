@@ -10,6 +10,7 @@ import axios from "axios";
 
 function verifiyCPF(getcpf) {
   const num = getcpf;
+  cpf.format(num)
   return cpf.isValid(num);
 }
 
@@ -134,7 +135,7 @@ export default function Home({ navigation, route }) {
           style={styles.button}
           onPress={async () => {
             const response = await axios.post(
-              "http://192.168.10.108:3333/verify",
+              "http://192.168.15.4:3333/verify",
               {
                 cpf: getcpf,
               }
