@@ -6,6 +6,7 @@ import logo from "../../assets/home_assets/logo.png";
 import { TextInput } from "@react-native-material/core";
 import { cpf } from "cpf-cnpj-validator";
 import axios from "axios";
+import { handleCPF, handleTelefone } from "./src/masks";
 // import {IP_LOCALHOST} from "@env"
 
 function verifiyCPF(getcpf) {
@@ -13,60 +14,64 @@ function verifiyCPF(getcpf) {
   cpf.format(num)
   return cpf.isValid(num);
 }
-
+function verifyEmail(email) {
+  const isValidEmail = email.match(
+    /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+  );
+  return isValidEmail;
+}
 export default function Home({ navigation, route }) {
   const [getname, name] = useState(""); //Armazenando os valores
   const [getemail, email] = useState(""); //Armazenando os valores
   const [getcpf, cpf] = useState(""); //Armazenando os valores
   const [gettel, tel] = useState(""); //Armazenando os valores
-
+  const [parsedTel, setParsedTel] = useState("");
+  const [parsedCPF, setParsedCPF] = useState("");
   return (
     /* Container */
     <View style={styles.container}>
       {/* Vetores e logo */}
-      <View>
-        <Image
-          source={vect1}
-          style={{
-            width: "50%",
-            left: 0,
-            height: undefined,
-            aspectRatio: 1.65,
-            position: "absolute",
-          }}
-          resizeMode="contain"
-        />
-        <Image
-          source={logo}
-          style={{
-            width: "50%",
-            left: "25%",
-            height: undefined,
-            aspectRatio: 0.7,
-            position: "absolute",
-          }}
-          resizeMode="contain"
-        />
-        <Image
-          source={vect2}
-          style={{
-            width: "31%",
-            right: 0,
-            height: undefined,
-            aspectRatio: 0.1,
-            position: "absolute",
-          }}
-          resizeMode="contain"
-        />
-      </View>
+      <Image
+        source={vect1}
+        style={{
+          width: "50%",
+          left: 0,
+          height: undefined,
+          aspectRatio: 1.65,
+          position: "absolute",
+        }}
+        resizeMode="contain"
+      />
 
+      <Image
+        source={vect2}
+        style={{
+          width: "31%",
+          right: 0,
+          bottom: 0,
+          height: undefined,
+          aspectRatio: 0.609929078,
+          position: "absolute",
+        }}
+        resizeMode="contain"
+      />
+      <Image
+        source={logo}
+        style={{
+          width: "50%",
+          left: "25%",
+          height: undefined,
+          aspectRatio: 2.35555555,
+          marginTop: "20%",
+        }}
+        resizeMode="contain"
+      />
       {/* Formulário */}
-
       <View
         style={{
           left: "10%",
           justifyContent: "space-between",
-          top: "30%",
+          marginTop: "10%",
         }}
       >
         {/* Nome */}
@@ -110,8 +115,14 @@ export default function Home({ navigation, route }) {
             style={styles.input}
             keyboardType="number-pad"
             variant="standard"
-            value={getcpf}
-            onChangeText={cpf}
+            value={parsedCPF}
+            onChangeText={(e) => {
+              const parsed = handleCPF(e);
+              setParsedCPF(parsed);
+              cpf(e.replace(/(\D)/g, ""));
+              console.log(getcpf, parsed);
+            }}
+            maxLength={14}
           />
         </View>
 
@@ -125,9 +136,15 @@ export default function Home({ navigation, route }) {
             label="Telefone"
             style={styles.input}
             variant="standard"
-            value={gettel}
-            onChangeText={tel}
+            value={parsedTel}
+            onChangeText={(e) => {
+              const parsed = handleTelefone(e);
+              setParsedTel(parsed);
+              tel(e.replace(/(\D)/g, ""));
+              console.log(gettel, parsed);
+            }}
             keyboardType="number-pad"
+            maxLength={14}
           />
         </View>
 
@@ -149,7 +166,9 @@ export default function Home({ navigation, route }) {
             }
             if (
               verifiyCPF(getcpf) &&
-              getname != null
+              getname != null &&
+              verifyEmail(getemail)
+
               /* ADICIONAR O RESTANTE DAS VALIDAÇÕES*/
             ) {
               navigation.navigate("Questions", {

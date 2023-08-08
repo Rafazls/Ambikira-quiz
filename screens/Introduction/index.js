@@ -4,31 +4,36 @@ import circleBackground2 from "../../assets/circles-question-page-2.png";
 import circleBackground3 from "../../assets/circles-introduction-page-1.png";
 import Logo from "../../assets/logoApp.png";
 import React from "react";
+import { useFonts } from "expo-font";
 
 export default function Introduction({ navigation, route }) {
+  const [fontsLoaded] = useFonts({
+    Anton: require("../../assets/fonts/Anton-Regular.ttf"),
+    Battambang: require("../../assets/fonts/Battambang-Regular.ttf"),
+    InriaSans: require("../../assets/fonts/Inria_Sans_Regular_400.ttf"),
+  });
+  if (!fontsLoaded) return;
   return (
     <View style={styles.teste}>
-
       <Image
         source={circleBackground3}
         style={{
           position: "absolute",
-          right: 260,
-          bottom: 720,
+          left: 0,
+          top: 0,
           width: "39%",
           height: undefined,
-          aspectRatio: 0.9999,
+          aspectRatio: 2.2613,
         }}
         resizeMode="contain"
       />
-
 
       <Image
         source={Logo}
         style={{
           position: "absolute",
           right: 25,
-          bottom: 725,
+          top: "2.5%",
           width: "30%",
           height: undefined,
           aspectRatio: 0.9999,
@@ -53,82 +58,81 @@ export default function Introduction({ navigation, route }) {
         source={circleBackground2}
         style={{
           position: "absolute",
-          right: 320,
+          left: 0,
           bottom: 0,
           width: "30%",
           height: undefined,
-          aspectRatio: 1.2222,
+          aspectRatio: 0.85384,
         }}
         resizeMode="contain"
       />
-
 
       <View style={styles.quadrado}>
         <Text></Text>
         <Text style={styles.textoQuadrado}>BEM VINDO AO AMBIKIRA</Text>
         <Text></Text>
-        <Text style={styles.textoQuadrado2}>Apresento-lhe um aplicativo educativo criado para desafiar seus conhecimentos sobre Educação no Brasil. Com uma interface intuitiva e cativante, o app oferece diversas categorias de perguntas relacionadas ao sistema educacional, história e muito mais.
-          Você poderá competir com amigos ou outros usuários, testar suas habilidades e aprender enquanto se diverte.</Text>
+        <Text style={styles.textoQuadrado2}>
+          Apresento-lhe um aplicativo educativo criado para desafiar seus
+          conhecimentos sobre Educação no Brasil. Com uma interface intuitiva e
+          cativante, o app oferece diversas categorias de perguntas relacionadas
+          ao sistema educacional, história e muito mais. Você poderá competir
+          com amigos ou outros usuários, testar suas habilidades e aprender
+          enquanto se diverte.
+        </Text>
       </View>
-
-
 
       <TouchableOpacity
         onPress={() => {
           navigation.navigate("Home");
         }}
+        style={styles.botaoJogar}
       >
-        <Text style={styles.botaoJogar}>JOGAR</Text>
+        <Text style={{ fontFamily: "InriaSans", color: "#FFF", fontSize: 24 }}>
+          INICIAR JOGO
+        </Text>
       </TouchableOpacity>
     </View>
-
-
   );
 }
-
-
 
 const styles = StyleSheet.create({
   teste: {
     flex: 1,
     backgroundColor: "#fff",
-    justifyContent: 'flex-start',
+    justifyContent: "flex-start",
     justifyContent: "center",
     alignItems: "center",
   },
 
   quadrado: {
-    width: 350,
-    height: 300,
     backgroundColor: "#FFEDC2",
-    marginTop: 100,
+    marginTop: "25%",
     alignItems: "center",
     borderRadius: 10,
     marginBottom: 0,
+    paddingHorizontal: 48,
+    width: "70%",
+    paddingVertical: 24,
   },
 
   textoQuadrado: {
     color: "#FF3131",
-    fontWeight: "bold",
-    fontSize: 20,
+    fontSize: 32,
+    fontFamily: "Anton",
   },
 
   textoQuadrado2: {
-    paddingLeft: 30,
-    paddingRight: 20,
     textAlign: "left",
+    fontFamily: "Battambang",
+    fontSize: 18,
   },
 
   botaoJogar: {
-    height: 40,
-    width: 200,
-    color: "#fff",
-    backgroundColor: "red",
-    marginTop: 120,
-    paddingVertical: 10,
-    paddingHorizontal: 70,
+    backgroundColor: "#FF3131",
+    marginTop: 80,
+    paddingVertical: 18,
+    paddingHorizontal: 64,
     borderRadius: 20,
-    fontWeight: "bold",
   },
 
   circleBackground: {
@@ -138,5 +142,5 @@ const styles = StyleSheet.create({
     width: "17%",
     height: undefined,
     aspectRatio: 0.6934,
-  }
+  },
 });
