@@ -6,6 +6,7 @@ import { useFonts } from "expo-font";
 import circleBackground from "../../assets/circles-question-page-1.png";
 import circleBackgroundTwo from "../../assets/circles-question-page-2.png";
 import questions from "../../assets/questions/perguntas.json";
+import axios from "axios";
 
 function sortearQuestoes() {
   const questionsSelected = [];
@@ -22,6 +23,12 @@ function sortearQuestoes() {
 }
 
 export default function QuestionPage({ navigation, route }) {
+  const { cpf, email, name, tel } = {
+    cpf: route.params.getcpf,
+    email: route.params.getemail,
+    getname: route.params.getname,
+    tel: route.params.gettel,
+  };
   const [fontsLoaded] = useFonts({
     Imprima: require("../../assets/fonts/Imprima_400.ttf"),
     PassionOne700: require("../../assets/fonts/Passion_One_Bold_700.ttf"),
@@ -55,7 +62,7 @@ export default function QuestionPage({ navigation, route }) {
     }, 1000);
     return myInterval;
   }
-  function endQuiz(interval) {
+  async function endQuiz(interval) {
     let points = 0;
     for (let index in questionsSelected) {
       console.log(
@@ -68,9 +75,21 @@ export default function QuestionPage({ navigation, route }) {
     }
     console.log(points);
     clearInterval(interval);
-    navigation.navigate("Finish");
+    const response = await axios.post("http://192.168.10.108:3333/users", {
+      name,
+      email,
+      cpf,
+      tel,
+      time: 120 - tempo,
+      pontos: points,
+    });
+    if (
+      response.status === 200 &&
+      response.data === "Dados cadastrados com sucesso"
+    ) {
+      navigation.navigate("Finish");
+    }
   }
-
   useEffect(() => {
     setQuestionsSelected(sortearQuestoes());
     interval = startTimer(setTempo);
