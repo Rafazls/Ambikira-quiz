@@ -80,7 +80,7 @@ export default function Finish({ navigation, route }) {
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate("Introduction");
+          navigation.navigate("Developers");
         }}
         style={styles.botaoDevs}
       >

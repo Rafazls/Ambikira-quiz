@@ -7,6 +7,7 @@ import Introduction from "./screens/Introduction";
 import Home from "./screens/Home";
 import QuestionPage from "./screens/Question";
 import Finish from "./screens/Finish";
+import Developers from './screens/Developers'
 import { useEffect } from "react";
 
 const Stack = createNativeStackNavigator();
@@ -31,6 +32,7 @@ export default function App() {
         <Stack.Screen component={Home} name="Home" />
         <Stack.Screen component={QuestionPage} name="Questions" />
         <Stack.Screen component={Finish} name="Finish" />
+        <Stack.Screen component={Developers} name="Developers" />
       </Stack.Navigator>
     </NavigationContainer>
   );
