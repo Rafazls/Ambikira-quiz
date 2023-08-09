@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { BackHandler, StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
@@ -7,14 +7,22 @@ import Introduction from "./screens/Introduction";
 import Home from "./screens/Home";
 import QuestionPage from "./screens/Question";
 import Finish from "./screens/Finish";
+import { useEffect } from "react";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  useEffect(() => {
+    const backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      () => true
+    );
+    return () => backHandler.remove();
+  }, []);
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Introduction"
+        initialRouteName="Finish"
         screenOptions={{
           headerShown: false,
         }}

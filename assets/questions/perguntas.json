@@ -148,6 +148,156 @@
             "D": "Despreparo das famílias, falta de recursos tecnológicos e baixo investimento do governo"
         },
         "alternativaCorreta": "C"
+    },
+    {
+        "pergunta": "O que é a 'educação intercultural' e como ela pode contribuir para a formação de cidadãos globais?",
+        "alternativas": {
+            "A": "É um modelo de ensino que valoriza apenas a cultura dominante do país, não considerando a diversidade cultural.",
+            "B": "É uma abordagem que busca promover a convivência entre culturas diferentes, enriquecendo o aprendizado dos estudantes.",
+            "C": "É um sistema educacional exclusivo para estudantes estrangeiros, que não se aplica a cidadãos locais.",
+            "D": "É uma proposta de ensino que não se preocupa com a diversidade cultural, focando apenas no currículo tradicional."
+        },
+        "alternativaCorreta": "B"
+    },
+    {
+        "pergunta": "Quais são os principais fatores que influenciam o abandono escolar?",
+        "alternativas": {
+            "A": "Baixa qualidade do ensino, falta de interesse dos alunos e problemas familiares",
+            "B": "Conflitos entre colegas, falta de apoio emocional e dificuldades financeiras",
+            "C": "Ausência de transporte escolar, falta de infraestrutura adequada e desmotivação dos professores",
+            "D": "Dificuldades de aprendizagem, excesso de tarefas e falta de atividades extracurriculares"
+        },
+        "alternativaCorreta": "A"
+    },
+    {
+        "pergunta": "O que é a 'pedagogia do oprimido' de Paulo Freire e como ela se relaciona com a educação crítica?",
+        "alternativas": {
+            "A": "É uma teoria que propõe a opressão dos alunos como forma de estimular o aprendizado.",
+            "B": "É uma abordagem que busca a alienação dos estudantes para evitar conflitos na sala de aula.",
+            "C": "É uma proposta que valoriza a reflexão e a consciência crítica dos alunos sobre sua realidade social.",
+            "D": "É um modelo educacional que prioriza o controle total do professor sobre os alunos."
+        },
+        "alternativaCorreta": "C"
+    },
+    {
+        "pergunta": "Quais são os desafios enfrentados pelos países em desenvolvimento na busca por melhorias na educação?",
+        "alternativas": {
+            "A": "Dificuldade em atrair professores qualificados, falta de recursos financeiros e infraestrutura precária",
+            "B": "Desinteresse dos alunos, falta de investimento em tecnologia e falta de parcerias internacionais",
+            "C": "Problemas de saúde pública, falta de material didático e ausência de avaliação educacional",
+            "D": "Falta de apoio dos pais, burocracia governamental e excesso de conteúdos curriculares"
+        },
+        "alternativaCorreta": "A"
+    },
+    {
+        "pergunta": "O que é a 'pedagogia tradicional' e como ela se difere das abordagens contemporâneas de ensino?",
+        "alternativas": {
+            "A": "É um modelo de ensino centrado no aluno, que prioriza a construção do conhecimento de forma colaborativa.",
+            "B": "É um método que enfatiza a memorização e a repetição de conteúdos, com pouca interação entre professor e aluno.",
+            "C": "É uma abordagem que busca o ensino especializado em disciplinas específicas, ignorando a interdisciplinaridade.",
+            "D": "É uma proposta de ensino focada na utilização de recursos tecnológicos, desprezando a importância do professor."
+        },
+        "alternativaCorreta": "B"
+    },
+    {
+        "pergunta": "Quais são as estratégias eficazes para promover a participação ativa dos pais na educação dos filhos?",
+        "alternativas": {
+            "A": "Oferecer cursos de capacitação para pais, envolvê-los em decisões escolares e criar espaços de diálogo com a escola.",
+            "B": "Contratar pais como professores, permitir a intervenção dos pais nas aulas e permitir que determinem o currículo escolar.",
+            "C": "Fornecer incentivos financeiros para a participação dos pais, limitar sua interferência nas atividades escolares e aumentar o tempo de férias escolares.",
+            "D": "Promover reuniões apenas com pais de alunos com bom desempenho acadêmico, para evitar conflitos com os demais."
+        },
+        "alternativaCorreta": "A"
+    },
+    {
+        "pergunta": "Quais são as principais mudanças necessárias para uma educação mais inclusiva e acessível a todos?",
+        "alternativas": {
+            "A": "Investimento em tecnologia avançada, aumento da carga horária escolar e seleção mais rigorosa de alunos.",
+            "B": "Adoção de políticas de cotas para estudantes de baixa renda, criação de currículos personalizados e capacitação de professores.",
+            "C": "Contratação de professores especializados em educação inclusiva, exclusão de disciplinas consideradas 'desnecessárias' e maior fiscalização nas escolas.",
+            "D": "Oferta de bolsas de estudo para estudantes com altas habilidades, fechamento de escolas menos eficientes e adoção de exames de seleção para ingresso nas escolas."
+        },
+        "alternativaCorreta": "B"
+    },
+    {
+        "pergunta": "Quais são os principais desafios enfrentados pelos sistemas de ensino na transição para o ensino remoto durante a pandemia?",
+        "alternativas": {
+            "A": "Adaptação rápida de professores ao ambiente virtual, acesso limitado à internet e falta de infraestrutura tecnológica nas escolas.",
+            "B": "Aumento do número de alunos matriculados, falta de recursos para aquisição de dispositivos eletrônicos e excesso de aulas online.",
+            "C": "Desinteresse dos alunos em participar das aulas virtuais, dificuldades na avaliação de aprendizado e resistência dos professores ao novo formato.",
+            "D": "Uso inadequado de redes sociais para fins educacionais, divulgação inadequada de informações e falta de regulamentação governamental."
+        },
+        "alternativaCorreta": "A"
+    },
+    {
+        "pergunta": "Como a falta de investimento em educação pode impactar o desenvolvimento de um país a longo prazo?",
+        "alternativas": {
+            "A": "Pode resultar em um déficit fiscal, diminuição da qualidade de vida da população e aumento da desigualdade social.",
+            "B": "Provoca um aumento do PIB, maior taxa de exportações e melhoria na infraestrutura das cidades.",
+            "C": "Não tem impacto significativo no desenvolvimento do país, desde que a economia esteja estável.",
+            "D": "Pode levar a uma melhoria na eficiência dos gastos públicos, beneficiando outros setores do governo."
+        },
+        "alternativaCorreta": "A"
+    },
+    {
+        "pergunta": "Quais são as principais estratégias para incentivar a formação continuada de professores?",
+        "alternativas": {
+            "A": "Aumento do salário dos docentes, maior rigidez na contratação e oferecimento de bônus por desempenho.",
+            "B": "Criação de programas de capacitação obrigatórios, reconhecimento profissional e investimento em recursos tecnológicos.",
+            "C": "Redução das exigências para a formação de professores, aumento da carga horária de trabalho e fornecimento de benefícios.",
+            "D": "Contratação de professores mais jovens, substituindo os mais antigos e desmotivados."
+        },
+        "alternativaCorreta": "B"
+    },
+    {
+        "pergunta": "Quais são os principais desafios enfrentados por estudantes com altas habilidades na escola regular?",
+        "alternativas": {
+            "A": "Falta de interesse em atividades curriculares comuns, dificuldades de relacionamento com os colegas e desmotivação dos professores.",
+            "B": "Desinteresse dos próprios alunos em desenvolver suas habilidades, falta de recursos para atender suas necessidades específicas e falta de reconhecimento por parte da escola.",
+            "C": "Excesso de tarefas e atividades extras, dificuldade de adaptação ao ritmo da turma e falta de estímulo ao seu potencial.",
+            "D": "Dificuldade em lidar com atividades cotidianas, falta de apoio da família e baixa autoestima."
+        },
+        "alternativaCorreta": "C"
+    },
+    {
+        "pergunta": "Quais são os impactos do bullying na aprendizagem dos estudantes e como a escola pode lidar com essa questão?",
+        "alternativas": {
+            "A": "O bullying pode levar à queda no rendimento acadêmico, evasão escolar e problemas de saúde mental. A escola deve implementar programas de prevenção e punição para os agressores.",
+            "B": "O bullying não tem impacto significativo na aprendizagem dos alunos e deve ser considerado como algo comum na vida escolar. A escola não deve interferir nesse tipo de conflito.",
+            "C": "O bullying pode incentivar a competição saudável entre os estudantes, melhorando a qualidade do aprendizado. A escola deve evitar interferir nas relações entre os alunos.",
+            "D": "O bullying pode afetar a autoestima e a motivação dos estudantes, mas a escola não deve se envolver, pois esse é um problema pessoal e não educacional."
+        },
+        "alternativaCorreta": "A"
+    },
+    {
+        "pergunta": "Como a educação pode contribuir para a preservação do meio ambiente e o desenvolvimento sustentável?",
+        "alternativas": {
+            "A": "Incentivando a produção em larga escala, aumentando o consumo de recursos naturais e adotando práticas pouco sustentáveis.",
+            "B": "Desenvolvendo currículos que promovam a conscientização ambiental, incentivando ações de reciclagem e redução do consumo.",
+            "C": "Excluindo a discussão sobre questões ambientais do currículo escolar, para evitar conflitos ideológicos.",
+            "D": "Ignorando a relevância do tema, uma vez que o meio ambiente não possui impacto significativo na vida das futuras gerações."
+        },
+        "alternativaCorreta": "B"
+    },
+    {
+        "pergunta": "Quais são os benefícios e desafios da implementação da educação em tempo integral nas escolas?",
+        "alternativas": {
+            "A": "Benefícios: maior aproveitamento do tempo, melhor acompanhamento dos alunos e mais tempo para atividades extracurriculares.",
+            "B": "Benefícios: maior flexibilidade de horários, maior participação dos pais e redução da evasão escolar.",
+            "C": "Desafios: aumento de custos para a infraestrutura, dificuldades para os professores e resistência dos alunos à mudança.",
+            "D": "Desafios: falta de investimento em infraestrutura adequada, dificuldade em encontrar professores em tempo integral e desinteresse dos pais na modalidade."
+        },
+        "alternativaCorreta": "A"
+    },
+    {
+        "pergunta": "Quais são os principais fatores que influenciam a escolha da carreira dos estudantes?",
+        "alternativas": {
+            "A": "Interesses pessoais, aptidões, influência familiar e mercado de trabalho.",
+            "B": "Apenas influência familiar e mercado de trabalho.",
+            "C": "Apenas aptidões e interesses pessoais.",
+            "D": "Apenas influência política e estabilidade financeira."
+        },
+        "alternativaCorreta": "A"
     }
     
 ]

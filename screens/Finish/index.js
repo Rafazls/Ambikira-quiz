@@ -3,20 +3,27 @@ import circleBackground from "../../assets/circle-finish-page-1.png";
 import circleBackground2 from "../../assets/circle-finish-page-2.png";
 import logo from "../../assets/logoApp.png";
 import React from "react";
+import { useFonts } from "expo-font";
 
 export default function Finish({ navigation, route }) {
+  const [fontsLoaded] = useFonts({
+    Anton: require("../../assets/fonts/Anton-Regular.ttf"),
+    Battambang: require("../../assets/fonts/Battambang-Regular.ttf"),
+    InriaSans: require("../../assets/fonts/Inria_Sans_Regular_400.ttf"),
+    PassionOne700: require("../../assets/fonts/Passion_One_Bold_700.ttf"),
+  });
+  if (!fontsLoaded) return;
   return (
     <View style={styles.teste}>
-
       <Image
         source={logo}
         style={{
           position: "absolute",
-          right: 270,
-          bottom: 725,
+          left: "5%",
+          top: "5%",
           width: "30%",
           height: undefined,
-          aspectRatio: 0.9999,
+          aspectRatio: 2.313559322,
         }}
         resizeMode="contain"
       />
@@ -25,11 +32,11 @@ export default function Finish({ navigation, route }) {
         source={circleBackground}
         style={{
           position: "absolute",
-          right: 290,
+          left: 0,
           bottom: 0,
-          width: "35%",
+          width: "25%",
           height: undefined,
-          aspectRatio: 1.2222,
+          aspectRatio: 1.057416268,
         }}
         resizeMode="contain"
       />
@@ -39,30 +46,49 @@ export default function Finish({ navigation, route }) {
         style={{
           position: "absolute",
           right: 0,
-          bottom: 700,
-          width: "30%",
+          top: 0,
+          width: "35%",
           height: undefined,
-          aspectRatio: 0.6934,
+          aspectRatio: 1.243243243,
         }}
         resizeMode="contain"
       />
 
       <View style={styles.quadrado}>
+        <Text style={styles.textoQuadrado}>
+          Muito obrigado por ter jogado conosco!
+        </Text>
         <Text></Text>
-        <Text style={styles.textoQuadrado}>Muito obrigado por ter jogado conosco!</Text>
-        <Text></Text>
-        <Text style={styles.textoQuadrado2}>Agradecemos por participar do nosso quiz sobre Educação no Brasil!
-          Esperamos que você tenha desfrutado da experiência de testar seus conhecimentos e aprender mais sobre o assunto.
-          Continue nos acompanhando para mais desafios e conteúdos educativos. Seu interesse em aprender é fundamental para
-          um futuro mais brilhante.</Text>
+        <Text style={styles.textoQuadrado2}>
+          Agradecemos por participar do nosso quiz sobre Educação no Brasil!
+          Esperamos que você tenha desfrutado da experiência de testar seus
+          conhecimentos e aprender mais sobre o assunto. Continue nos
+          acompanhando para mais desafios e conteúdos educativos. Seu interesse
+          em aprender é fundamental para um futuro mais brilhante.
+        </Text>
       </View>
 
       <TouchableOpacity
         onPress={() => {
           navigation.navigate("Introduction");
         }}
+        style={styles.botaoInicio}
       >
-        <Text style={styles.botaoInicio}>Início</Text>
+        <Text style={{ fontFamily: "InriaSans", fontSize: 32, color: "#FFF" }}>
+          INÍCIO
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate("Introduction");
+        }}
+        style={styles.botaoDevs}
+      >
+        <Text
+          style={{ fontFamily: "PassionOne700", fontSize: 19, color: "#FFF" }}
+        >
+          Desenvolvedores
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -77,37 +103,44 @@ const styles = StyleSheet.create({
   },
 
   quadrado: {
-    width: 350,
-    height: 300,
     backgroundColor: "#FFEDC2",
-    marginTop: 100,
+    marginTop: "15%",
     alignItems: "center",
     borderRadius: 10,
     marginBottom: 0,
+    maxWidth: "70%",
+    paddingHorizontal: 20,
+    paddingVertical: 24,
   },
 
   textoQuadrado: {
     color: "#FF3131",
-    fontWeight: "bold",
-    fontSize: 20,
+    fontSize: 32,
     textAlign: "center",
+    fontFamily: "Anton",
   },
 
   textoQuadrado2: {
-    paddingLeft: 30,
-    paddingRight: 20,
     textAlign: "left",
+    fontFamily: "Battambang",
+    fontSize: 18,
   },
 
   botaoInicio: {
-    height: 40,
-    width: 200,
-    color: "#fff",
     backgroundColor: "#F0B528",
-    marginTop: 120,
+    marginTop: 20,
     paddingVertical: 10,
     paddingHorizontal: 70,
-    borderRadius: 20,
+    borderRadius: 50,
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  botaoDevs: {
+    backgroundColor: "#FF3131",
+    marginTop: 24,
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    borderRadius: 50,
     fontWeight: "bold",
     textAlign: "center",
   },

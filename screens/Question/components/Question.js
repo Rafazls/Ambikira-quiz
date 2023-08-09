@@ -22,7 +22,6 @@ export default function Question({
   function updateQuestion(resposta) {
     const respostasCopy = [...respostasObject.respostas];
     respostasCopy.splice(numeroQuestaoAtual, 1, resposta);
-    console.log(respostasCopy);
     respostasObject.setRespostas(respostasCopy);
   }
 

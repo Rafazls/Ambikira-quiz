@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { Text, View, StyleSheet, TouchableOpacity, Image, Alert } from "react-native";
 import React, { useEffect, useState } from "react";
 import vect1 from "../../assets/home_assets/grup1.png";
 import vect2 from "../../assets/home_assets/grup2.png";
@@ -7,8 +7,6 @@ import { TextInput } from "@react-native-material/core";
 import { cpf } from "cpf-cnpj-validator";
 import axios from "axios";
 import { handleCPF, handleTelefone } from "./src/masks";
-// import {IP_LOCALHOST} from "@env"
-
 function verifiyCPF(getcpf) {
   const num = getcpf;
   cpf.format(num)
@@ -20,13 +18,34 @@ function verifyEmail(email) {
   );
   return isValidEmail;
 }
+
+
 export default function Home({ navigation, route }) {
-  const [getname, name] = useState(""); //Armazenando os valores
-  const [getemail, email] = useState(""); //Armazenando os valores
-  const [getcpf, cpf] = useState(""); //Armazenando os valores
-  const [gettel, tel] = useState(""); //Armazenando os valores
+  const [getname, name] = useState("");
+  const [getemail, email] = useState("");
+  const [getcpf, cpf] = useState("");
+  const [gettel, tel] = useState("");
   const [parsedTel, setParsedTel] = useState("");
   const [parsedCPF, setParsedCPF] = useState("");
+
+  const InvalidCPFAlert = () =>
+    Alert.alert('CPF Inválido!', 'Digite novamente!', [
+      { text: 'OK', onPress: () => console.log('') },
+    ]);
+  const InvalidUserAlert = () =>
+    Alert.alert('Usuário já cadastrado', 'Digite novamente!', [
+      { text: 'OK', onPress: () => console.log('') },
+    ]);
+  const InvalidEmailAlert = () =>
+    Alert.alert('Email Inválido!', 'Digite novamente!', [
+      { text: 'OK', onPress: () => console.log('') },
+    ]);
+  const Nullcamps = () =>
+    Alert.alert('Campo Vazio', 'Digite novamente!', [
+      { text: 'OK', onPress: () => console.log('') },
+    ]);
+
+  let cont = 0;
   return (
     /* Container */
     <View style={styles.container}>
@@ -42,7 +61,16 @@ export default function Home({ navigation, route }) {
         }}
         resizeMode="contain"
       />
-
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate("Introduction");
+        }}
+        style={styles.out}
+      >
+        <Text style={{color:'#FFF'}}>
+          Voltar
+        </Text>
+      </TouchableOpacity>
       <Image
         source={vect2}
         style={{
@@ -148,6 +176,7 @@ export default function Home({ navigation, route }) {
           />
         </View>
 
+
         <TouchableOpacity
           style={styles.button}
           onPress={async () => {
@@ -158,30 +187,45 @@ export default function Home({ navigation, route }) {
               }
             );
             console.log(response);
-            if (
-              response.data === "Usuário já cadastrado" &&
-              response.status === 400
-            ) {
-              return;
-            }
-            if (
-              verifiyCPF(getcpf) &&
-              getname != null &&
-              verifyEmail(getemail)
+            do {
+              if (
+                response.data === "Usuário já cadastrado" &&
+                response.status === 400
+              ) {
+                console.log("Usuário já cadastrado")
+                InvalidUserAlert();
+              }
+              if (getcpf == '' ||
+                getemail == '' ||
+                getname == '' ||
+                gettel == ''
+              ) {
+                console.log("Campo vazio!");
+                Nullcamps();
+              }
+              if (verifiyCPF(getcpf) == false) {
+                console.log('CPF inválido');
+                InvalidCPFAlert();
+              }
+              if (verifyEmail(getemail) == null) {
+                console.log('Email invalido');
+                InvalidEmailAlert();
+              }
+              cont +=1;
+            } while (cont != 1);
 
-              /* ADICIONAR O RESTANTE DAS VALIDAÇÕES*/
-            ) {
-              navigation.navigate("Questions", {
-                getname,
-                getemail,
-                getcpf,
-                gettel,
-              });
-            }
+            navigation.navigate("Questions", {
+             getname,
+             getemail,
+             getcpf,
+             gettel,
+            });
+          
           }}
         >
           <Text>COMEÇAR O JOGO</Text>
         </TouchableOpacity>
+        
       </View>
     </View>
   );
@@ -214,4 +258,15 @@ const styles = StyleSheet.create({
   forms: {
     flexDirection: "row",
   },
+  out:{
+    width: "30%",
+    height: "6%",
+    left:'65%',
+    top:'8%',
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 18,
+    backgroundColor: "#E21C16",
+    
+  }
 });
