@@ -1,5 +1,12 @@
-import { Text, View, StyleSheet, TouchableOpacity, Image } from "react-native";
-import React, { useEffect, useState } from "react";
+import {
+  Text,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  Animated,
+} from "react-native";
+import React, { useEffect, useRef, useState } from "react";
 import logoOnApp from "../../assets/logoApp.png";
 import Question from "./components/Question";
 import { useFonts } from "expo-font";
@@ -26,7 +33,7 @@ export default function QuestionPage({ navigation, route }) {
   const { cpf, email, name, tel } = {
     cpf: route.params.getcpf,
     email: route.params.getemail,
-    getname: route.params.getname,
+    name: route.params.getname,
     tel: route.params.gettel,
   };
   const [fontsLoaded] = useFonts({
@@ -65,15 +72,10 @@ export default function QuestionPage({ navigation, route }) {
   async function endQuiz(interval) {
     let points = 0;
     for (let index in questionsSelected) {
-      console.log(
-        questionsSelected[index].alternativaCorreta,
-        respostas[index]
-      );
       if (questionsSelected[index].alternativaCorreta === respostas[index]) {
         points++;
       }
     }
-    console.log(points);
     clearInterval(interval);
     const response = await axios.post("http://192.168.10.108:3333/users", {
       name,
@@ -90,13 +92,16 @@ export default function QuestionPage({ navigation, route }) {
       navigation.navigate("Finish");
     }
   }
+
   useEffect(() => {
     setQuestionsSelected(sortearQuestoes());
     interval = startTimer(setTempo);
   }, []);
+
   if (!fontsLoaded || questionsSelected.length === 0) {
     return null;
   }
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -105,10 +110,16 @@ export default function QuestionPage({ navigation, route }) {
           style={{ width: "35%" }}
           resizeMode="contain"
         />
-        <Text style={[styles.textTime]}>
+        <Animated.Text
+          style={
+            tempo < 30
+              ? [styles.textTime, { color: "red" }]
+              : [styles.textTime, { color: "black" }]
+          }
+        >
           {Math.floor(tempo / 60)}:
           {tempo % 60 < 10 ? "0" + (tempo % 60) : tempo % 60}
-        </Text>
+        </Animated.Text>
       </View>
       <View style={{ marginHorizontal: 38 }}>
         <Question
@@ -178,7 +189,6 @@ export default function QuestionPage({ navigation, route }) {
         }}
         resizeMode="contain"
       />
-
     </View>
   );
 }
@@ -196,8 +206,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 44,
   },
   textTime: {
-    fontSize: 56,
     fontFamily: "Jomhuria",
+    fontSize: 56,
   },
   nextQuestionButton: {
     backgroundColor: "#F0B528",
