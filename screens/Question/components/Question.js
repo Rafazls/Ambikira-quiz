@@ -8,6 +8,7 @@ import {
 import React, { useEffect, useRef, useState } from "react";
 import RadioSelection from "./RadioButtonQuestion";
 import { useFonts } from "expo-font";
+import normalize from "../../../assets/normalizeFont";
 
 export default function Question({
   questaoAtual,
@@ -29,7 +30,7 @@ export default function Question({
     <>
       <View style={styles.questionView}>
         <View style={styles.circleNumber}>
-          <Text style={{ fontFamily: "Imprima", fontSize: 24 }}>
+          <Text style={{ fontFamily: "Imprima", fontSize: normalize(30) }}>
             {numeroQuestaoAtual + 1}°
           </Text>
         </View>
@@ -38,7 +39,7 @@ export default function Question({
             fontFamily: "PassionOne700",
             maxWidth: "90%",
             color: "#FFF",
-            fontSize: 22,
+            fontSize: normalize(32),
             textAlign: "center",
           }}
         >

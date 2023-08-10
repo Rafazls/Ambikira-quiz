@@ -5,6 +5,7 @@ import AmbikiraLogo  from '../../assets/AmbikiraLogo.png'
 import CeapLogo  from '../../assets/CeapLogo.png'
 import React from "react";
 import { useFonts } from "expo-font";
+import normalize from "../../assets/normalizeFont";
 
 export default function Developers({ navigation, route }) {
   const [fontsLoaded] = useFonts({
@@ -20,7 +21,7 @@ export default function Developers({ navigation, route }) {
       <Image
         source={Background}
         style={{
-          width: "50%",
+          width: "30%",
           left: -3,
           top:0,
           height: undefined,
@@ -33,7 +34,7 @@ export default function Developers({ navigation, route }) {
       <Image
         source={Background2}
         style={{
-          width: "50%",
+          width: "25%",
           right:-3,
           bottom:0,
           height: undefined,
@@ -42,19 +43,19 @@ export default function Developers({ navigation, route }) {
         }}
         resizeMode="contain"
       />
-
-      <Image
-        source={AmbikiraLogo}
-        style={{
-          width: "38%",
-          right:15,
-          top:40,
-          height: undefined,
-          aspectRatio: 1.10,
-          position: "absolute",
-        }}
-        resizeMode="contain"
-      />    
+      <View style={{width: "100%", alignItems: 'flex-end', marginTop: "10%"}}>
+        <Image
+          source={AmbikiraLogo}
+          style={{
+            width: "38%",
+            height: undefined,
+            aspectRatio: 2.093220,
+            marginRight: 16
+          }}
+          resizeMode="contain"
+        />
+      </View>
+          
     
 
       <View style={styles.textblock}>
@@ -111,7 +112,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f8f4f4',
     alignItems: 'center',
-    justifyContent: 'center',
     
   },
   textblock:{
@@ -121,8 +121,8 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     padding:15,
     paddingTop:15,
-    marginTop:45,
     marginBottom:30,
+    marginTop: 36
 
   },
   
@@ -132,14 +132,14 @@ const styles = StyleSheet.create({
     justifyContent:'space-around',
   },
   title:{
-    fontSize:28,
+    fontSize: normalize(48),
     color: '#FFEDC2', 
     textAlign:"center",
     fontFamily:"Anton",
   },
 
   devText:{
-    fontSize:16,
+    fontSize: normalize(24),
     margin:10,
     color:'#FFFFFF',
     fontFamily:"Battambang"
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
     
   },
   bottonText:{
-    fontSize:25,
+    fontSize: normalize(40),
     color: '#FFFFFF'
   },
 });

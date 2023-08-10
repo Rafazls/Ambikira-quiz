@@ -4,6 +4,7 @@ import circleBackground2 from "../../assets/circle-finish-page-2.png";
 import logo from "../../assets/logoApp.png";
 import React from "react";
 import { useFonts } from "expo-font";
+import normalize from "../../assets/normalizeFont";
 
 export default function Finish({ navigation, route }) {
   const [fontsLoaded] = useFonts({
@@ -53,12 +54,14 @@ export default function Finish({ navigation, route }) {
         }}
         resizeMode="contain"
       />
-
-      <View style={styles.quadrado}>
-        <Text style={styles.textoQuadrado}>
+      <Text style={styles.textoQuadrado}>
           Muito obrigado por ter jogado conosco!
-        </Text>
-        <Text></Text>
+      </Text>
+      <Text style={{fontFamily: "Battambang", fontSize: normalize(32)}}>Sua pontuação foi:</Text>
+      <View style={{backgroundColor: "#7079F3", paddingHorizontal: 32, paddingVertical: 12, borderRadius: 24, marginTop: 20}}>
+        <Text style={{fontFamily: "PassionOne700", color: "#FFF", fontSize: normalize(72)}}>{route.params.points}/15</Text>
+      </View>
+      <View style={styles.quadrado}>
         <Text style={styles.textoQuadrado2}>
           Agradecemos por participar do nosso quiz sobre Educação no Brasil!
           Esperamos que você tenha desfrutado da experiência de testar seus
@@ -74,7 +77,7 @@ export default function Finish({ navigation, route }) {
         }}
         style={styles.botaoInicio}
       >
-        <Text style={{ fontFamily: "InriaSans", fontSize: 32, color: "#FFF" }}>
+        <Text style={{ fontFamily: "InriaSans", fontSize: normalize(48), color: "#FFF" }}>
           INÍCIO
         </Text>
       </TouchableOpacity>
@@ -85,7 +88,7 @@ export default function Finish({ navigation, route }) {
         style={styles.botaoDevs}
       >
         <Text
-          style={{ fontFamily: "PassionOne700", fontSize: 19, color: "#FFF" }}
+          style={{ fontFamily: "PassionOne700", fontSize: normalize(32), color: "#FFF" }}
         >
           Desenvolvedores
         </Text>
@@ -104,7 +107,7 @@ const styles = StyleSheet.create({
 
   quadrado: {
     backgroundColor: "#FFEDC2",
-    marginTop: "15%",
+    marginTop: "5%",
     alignItems: "center",
     borderRadius: 10,
     marginBottom: 0,
@@ -115,15 +118,17 @@ const styles = StyleSheet.create({
 
   textoQuadrado: {
     color: "#FF3131",
-    fontSize: 32,
+    fontSize: normalize(48),
     textAlign: "center",
     fontFamily: "Anton",
+    marginTop: "20%",
+    width: "50%",
   },
 
   textoQuadrado2: {
     textAlign: "left",
     fontFamily: "Battambang",
-    fontSize: 18,
+    fontSize: normalize(24),
   },
 
   botaoInicio: {

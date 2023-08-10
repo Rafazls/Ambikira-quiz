@@ -23,7 +23,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Finish"
+        initialRouteName="Introduction"
         screenOptions={{
           headerShown: false,
         }}
@@ -31,7 +31,7 @@ export default function App() {
         <Stack.Screen component={Introduction} name="Introduction" />
         <Stack.Screen component={Home} name="Home" />
         <Stack.Screen component={QuestionPage} name="Questions" />
-        <Stack.Screen component={Finish} name="Finish" />
+        <Stack.Screen component={Finish} name="Finish" initialParams={{points: 0}}/>
         <Stack.Screen component={Developers} name="Developers" />
       </Stack.Navigator>
     </NavigationContainer>

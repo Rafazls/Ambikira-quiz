@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   Image,
   Animated,
+  Alert,
 } from "react-native";
 import React, { useEffect, useRef, useState } from "react";
 import logoOnApp from "../../assets/logoApp.png";
@@ -14,6 +15,7 @@ import circleBackground from "../../assets/circles-question-page-1.png";
 import circleBackgroundTwo from "../../assets/circles-question-page-2.png";
 import questions from "../../assets/questions/perguntas.json";
 import axios from "axios";
+import normalize from "../../assets/normalizeFont";
 
 function sortearQuestoes() {
   const questionsSelected = [];
@@ -77,19 +79,27 @@ export default function QuestionPage({ navigation, route }) {
       }
     }
     clearInterval(interval);
-    const response = await axios.post("http://192.168.10.108:3333/users", {
-      name,
-      email,
-      cpf,
-      tel,
-      time: 120 - tempo,
-      pontos: points,
-    });
-    if (
-      response.status === 200 &&
-      response.data === "Dados cadastrados com sucesso"
-    ) {
-      navigation.navigate("Finish");
+    try {
+      const response = await axios.post("https://backend-ambikira.fly.dev/users", {
+        name,
+        email,
+        cpf,
+        tel,
+        time: 120 - tempo,
+        pontos: points,
+      });
+      if (
+        response.status === 200 &&
+        response.data === "Dados cadastrados com sucesso"
+      ) {
+        navigation.navigate("Finish", {
+          points
+        });
+      }
+    } catch (error) {
+      Alert.alert("Error", "Ocorreu um erro no seu cadastro no banco de dados, verifique seus dados e jogue novamente" + error, [
+        { text: 'Retornar ao menu principal', onPress: () => navigation.popToTop() },
+      ])
     }
   }
 
@@ -139,7 +149,7 @@ export default function QuestionPage({ navigation, route }) {
             <Text
               style={{
                 fontFamily: "InriaSans700",
-                fontSize: 24,
+                fontSize: normalize(32),
                 color: "#FFF",
               }}
             >
@@ -156,7 +166,7 @@ export default function QuestionPage({ navigation, route }) {
             <Text
               style={{
                 fontFamily: "InriaSans700",
-                fontSize: 24,
+                fontSize: normalize(32),
                 color: "#FFF",
               }}
             >
@@ -207,7 +217,7 @@ const styles = StyleSheet.create({
   },
   textTime: {
     fontFamily: "Jomhuria",
-    fontSize: 56,
+    fontSize: normalize(80),
   },
   nextQuestionButton: {
     backgroundColor: "#F0B528",

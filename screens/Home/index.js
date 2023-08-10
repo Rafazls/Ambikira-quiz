@@ -1,4 +1,11 @@
-import { Text, View, StyleSheet, TouchableOpacity, Image, Alert } from "react-native";
+import {
+  Text,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  Alert,
+} from "react-native";
 import React, { useEffect, useState } from "react";
 import vect1 from "../../assets/home_assets/grup1.png";
 import vect2 from "../../assets/home_assets/grup2.png";
@@ -7,9 +14,11 @@ import { TextInput } from "@react-native-material/core";
 import { cpf } from "cpf-cnpj-validator";
 import axios from "axios";
 import { handleCPF, handleTelefone } from "./src/masks";
+import { useFonts } from "expo-font";
+import normalize from "../../assets/normalizeFont";
 function verifiyCPF(getcpf) {
   const num = getcpf;
-  cpf.format(num)
+  cpf.format(num);
   return cpf.isValid(num);
 }
 function verifyEmail(email) {
@@ -18,7 +27,6 @@ function verifyEmail(email) {
   );
   return isValidEmail;
 }
-
 
 export default function Home({ navigation, route }) {
   const [getname, name] = useState("");
@@ -29,23 +37,27 @@ export default function Home({ navigation, route }) {
   const [parsedCPF, setParsedCPF] = useState("");
 
   const InvalidCPFAlert = () =>
-    Alert.alert('CPF Inválido!', 'Digite novamente!', [
-      { text: 'OK', onPress: () => console.log('') },
+    Alert.alert("CPF Inválido!", "Digite novamente!", [
+      { text: "OK", onPress: () => console.log("") },
     ]);
   const InvalidUserAlert = () =>
-    Alert.alert('Usuário já cadastrado', 'Digite novamente!', [
-      { text: 'OK', onPress: () => console.log('') },
+    Alert.alert("Usuário já cadastrado", "Digite novamente!", [
+      { text: "OK", onPress: () => console.log("") },
     ]);
   const InvalidEmailAlert = () =>
-    Alert.alert('Email Inválido!', 'Digite novamente!', [
-      { text: 'OK', onPress: () => console.log('') },
+    Alert.alert("Email Inválido!", "Digite novamente!", [
+      { text: "OK", onPress: () => console.log("") },
     ]);
   const Nullcamps = () =>
-    Alert.alert('Campo Vazio', 'Digite novamente!', [
-      { text: 'OK', onPress: () => console.log('') },
+    Alert.alert("Campo Vazio", "Digite novamente!", [
+      { text: "OK", onPress: () => console.log("") },
     ]);
-
-  let cont = 0;
+  const [fontsLoaded] = useFonts({
+    InriaSans700: require("../../assets/fonts/Inria_Sans_Bold_700.ttf"),
+  });
+  if (!fontsLoaded) {
+    return null;
+  }
   return (
     /* Container */
     <View style={styles.container}>
@@ -67,9 +79,7 @@ export default function Home({ navigation, route }) {
         }}
         style={styles.out}
       >
-        <Text style={{color:'#FFF'}}>
-          Voltar
-        </Text>
+        <Text style={{ color: "#FFF", fontSize: normalize(32) }}>Voltar</Text>
       </TouchableOpacity>
       <Image
         source={vect2}
@@ -176,56 +186,62 @@ export default function Home({ navigation, route }) {
           />
         </View>
 
-
         <TouchableOpacity
           style={styles.button}
-          onPress={async () => {
-            const response = await axios.post(
-              "http://192.168.15.4:3333/verify",
-              {
+          onPress={() => {
+            if (
+              getcpf == "" ||
+              getemail == "" ||
+              getname == "" ||
+              gettel == ""
+            ) {
+              console.log("Campo vazio!");
+              Nullcamps();
+              return;
+            }
+            if (verifiyCPF(getcpf) == false) {
+              console.log("CPF inválido");
+              InvalidCPFAlert();
+              return;
+            }
+            if (verifyEmail(getemail) == null) {
+              console.log("Email invalido");
+              InvalidEmailAlert();
+              return;
+            }
+            axios
+              .post("https://backend-ambikira.fly.dev/verify", {
                 cpf: getcpf,
-              }
-            );
-            console.log(response);
-            do {
-              if (
-                response.data === "Usuário já cadastrado" &&
-                response.status === 400
-              ) {
-                console.log("Usuário já cadastrado")
-                InvalidUserAlert();
-              }
-              if (getcpf == '' ||
-                getemail == '' ||
-                getname == '' ||
-                gettel == ''
-              ) {
-                console.log("Campo vazio!");
-                Nullcamps();
-              }
-              if (verifiyCPF(getcpf) == false) {
-                console.log('CPF inválido');
-                InvalidCPFAlert();
-              }
-              if (verifyEmail(getemail) == null) {
-                console.log('Email invalido');
-                InvalidEmailAlert();
-              }
-              cont +=1;
-            } while (cont != 1);
-
-            navigation.navigate("Questions", {
-             getname,
-             getemail,
-             getcpf,
-             gettel,
-            });
-          
+              })
+              .then((response) => {
+                if (response.status === 200 && response.data === "Usuário qualificado para jogar") {
+                  navigation.navigate("Questions", {
+                    getname,
+                    getemail,
+                    getcpf,
+                    gettel,
+                  });
+                }
+              })
+              .catch((reject) => {
+                const { response } = reject;
+                console.log("teste");
+                if (
+                  response.data === "Usuário já cadastrado" &&
+                  response.status === 400
+                ) {
+                  console.log("Usuário já cadastrado");
+                  InvalidUserAlert();
+                }
+              });
           }}
         >
-          <Text>COMEÇAR O JOGO</Text>
+          <Text
+            style={{ fontFamily: "InriaSans700", color: "#FFF", fontSize: normalize(32) }}
+          >
+            COMEÇAR O JOGO
+          </Text>
         </TouchableOpacity>
-        
       </View>
     </View>
   );
@@ -237,7 +253,7 @@ const styles = StyleSheet.create({
   },
   button: {
     width: "50%",
-    height: "18%",
+    height: "12%",
     left: "18%",
     justifyContent: "center",
     alignItems: "center",
@@ -258,15 +274,14 @@ const styles = StyleSheet.create({
   forms: {
     flexDirection: "row",
   },
-  out:{
+  out: {
     width: "30%",
     height: "6%",
-    left:'65%',
-    top:'8%',
+    left: "65%",
+    top: "8%",
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 18,
     backgroundColor: "#E21C16",
-    
-  }
+  },
 });

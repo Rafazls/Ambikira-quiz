@@ -1,10 +1,12 @@
-import { Text, View, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { Text, View, StyleSheet, TouchableOpacity, Image, Dimensions, PixelRatio } from "react-native";
 import circleBackground from "../../assets/circles-question-page-1.png";
 import circleBackground2 from "../../assets/circles-question-page-2.png";
 import circleBackground3 from "../../assets/circles-introduction-page-1.png";
 import Logo from "../../assets/logoApp.png";
 import React from "react";
 import { useFonts } from "expo-font";
+import normalize from "../../assets/normalizeFont";
+
 
 export default function Introduction({ navigation, route }) {
   const [fontsLoaded] = useFonts({
@@ -87,7 +89,7 @@ export default function Introduction({ navigation, route }) {
         }}
         style={styles.botaoJogar}
       >
-        <Text style={{ fontFamily: "InriaSans", color: "#FFF", fontSize: 24 }}>
+        <Text style={{ fontFamily: "InriaSans", color: "#FFF", fontSize: normalize(48) }}>
           INICIAR JOGO
         </Text>
       </TouchableOpacity>
@@ -117,14 +119,14 @@ const styles = StyleSheet.create({
 
   textoQuadrado: {
     color: "#FF3131",
-    fontSize: 32,
+    fontSize: normalize(48),
     fontFamily: "Anton",
   },
 
   textoQuadrado2: {
     textAlign: "left",
     fontFamily: "Battambang",
-    fontSize: 18,
+    fontSize: normalize(24),
   },
 
   botaoJogar: {

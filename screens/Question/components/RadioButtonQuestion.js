@@ -8,6 +8,7 @@ import {
   Animated,
 } from "react-native";
 import React from "react";
+import normalize from "../../../assets/normalizeFont";
 
 export default function RadioSelection({
   status,
@@ -21,7 +22,7 @@ export default function RadioSelection({
         <View style={styles.containerAlternatives}>
           <View style={styles.circleAlternative}>
             <Text
-              style={{ fontFamily: "Imprima", fontSize: 24, color: "#FFF" }}
+              style={{ fontFamily: "Imprima", fontSize: normalize(30), color: "#FFF" }}
             >
               {alternative}
             </Text>
@@ -33,7 +34,7 @@ export default function RadioSelection({
                 : [styles.answerView, styles.unchecked]
             }
           >
-            <Text style={{ fontFamily: "InriaSans700", fontSize: 15 }}>
+            <Text style={{ fontFamily: "InriaSans700", fontSize: normalize(20) }}>
               {question}
             </Text>
           </View>
