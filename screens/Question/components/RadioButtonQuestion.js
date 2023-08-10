@@ -34,7 +34,7 @@ export default function RadioSelection({
                 : [styles.answerView, styles.unchecked]
             }
           >
-            <Text style={{ fontFamily: "InriaSans700", fontSize: normalize(20) }}>
+            <Text style={{ fontFamily: "InriaSans700", fontSize: normalize(24) }}>
               {question}
             </Text>
           </View>
@@ -54,8 +54,9 @@ const styles = StyleSheet.create({
   circleAlternative: {
     borderRadius: 50000,
     backgroundColor: "#0097B2",
-    width: 40,
-    height: 40,
+    width: "7%",
+    height: undefined,
+    aspectRatio: 1,
     justifyContent: "center",
     alignItems: "center",
     marginRight: 16,
@@ -65,12 +66,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   answerView: {
-    width: "90%",
+    width: "91%",
     paddingVertical: 24,
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 20,
     marginTop: 8,
     marginBottom: 8,
+    backgroundColor: "#000fff",
+    paddingHorizontal: 8
   },
 });

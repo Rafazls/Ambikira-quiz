@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   Image,
   Alert,
+  ActivityIndicator,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import vect1 from "../../assets/home_assets/grup1.png";
@@ -15,7 +16,10 @@ import { cpf } from "cpf-cnpj-validator";
 import axios from "axios";
 import { handleCPF, handleTelefone } from "./src/masks";
 import { useFonts } from "expo-font";
+import voltarImg from '../../assets/de-volta.png'
 import normalize from "../../assets/normalizeFont";
+import InputScrollView from 'react-native-input-scroll-view';
+
 function verifiyCPF(getcpf) {
   const num = getcpf;
   cpf.format(num);
@@ -35,7 +39,7 @@ export default function Home({ navigation, route }) {
   const [gettel, tel] = useState("");
   const [parsedTel, setParsedTel] = useState("");
   const [parsedCPF, setParsedCPF] = useState("");
-
+  const [ loading, setLoading ] = useState(false)
   const InvalidCPFAlert = () =>
     Alert.alert("CPF Inválido!", "Digite novamente!", [
       { text: "OK", onPress: () => console.log("") },
@@ -58,7 +62,7 @@ export default function Home({ navigation, route }) {
   if (!fontsLoaded) {
     return null;
   }
-  return (
+  return !loading ? (
     /* Container */
     <View style={styles.container}>
       {/* Vetores e logo */}
@@ -79,7 +83,7 @@ export default function Home({ navigation, route }) {
         }}
         style={styles.out}
       >
-        <Text style={{ color: "#FFF", fontSize: normalize(32) }}>Voltar</Text>
+        <Image source={voltarImg} style={{height: undefined, width: "15%", aspectRatio: 1}} resizeMode="contain"/>
       </TouchableOpacity>
       <Image
         source={vect2}
@@ -189,6 +193,7 @@ export default function Home({ navigation, route }) {
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
+
             if (
               getcpf == "" ||
               getemail == "" ||
@@ -209,11 +214,13 @@ export default function Home({ navigation, route }) {
               InvalidEmailAlert();
               return;
             }
+            setLoading(true)
             axios
               .post("https://backend-ambikira.fly.dev/verify", {
                 cpf: getcpf,
               })
               .then((response) => {
+                setLoading(false);
                 if (response.status === 200 && response.data === "Usuário qualificado para jogar") {
                   navigation.navigate("Questions", {
                     getname,
@@ -225,7 +232,7 @@ export default function Home({ navigation, route }) {
               })
               .catch((reject) => {
                 const { response } = reject;
-                console.log("teste");
+                setLoading(false);
                 if (
                   response.data === "Usuário já cadastrado" &&
                   response.status === 400
@@ -244,7 +251,11 @@ export default function Home({ navigation, route }) {
         </TouchableOpacity>
       </View>
     </View>
-  );
+  ) : (
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: "rgb(255, 255, 255)"}}>
+      <ActivityIndicator size={"large"} color={"#000000"}/>
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
@@ -275,13 +286,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   out: {
-    width: "30%",
+    width: "40%",
     height: "6%",
     left: "65%",
-    top: "8%",
+    top: "5%",
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 18,
-    backgroundColor: "#E21C16",
   },
 });

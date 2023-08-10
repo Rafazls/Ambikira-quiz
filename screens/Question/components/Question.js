@@ -17,10 +17,10 @@ export default function Question({
 }) {
   const [selected, setSelected] = useState(null);
   useEffect(() => {
-    setSelected(null);
+    setSelected(null); //Zera as questões escolhidas toda vez que troca de questões
   }, [questaoAtual]);
 
-  function updateQuestion(resposta) {
+  function updateQuestion(resposta) { //Função que atualiza a resposta selecionada pelo usuário na pergunta atual
     const respostasCopy = [...respostasObject.respostas];
     respostasCopy.splice(numeroQuestaoAtual, 1, resposta);
     respostasObject.setRespostas(respostasCopy);

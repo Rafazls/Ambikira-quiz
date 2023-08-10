@@ -9,12 +9,12 @@ import normalize from "../../assets/normalizeFont";
 
 
 export default function Introduction({ navigation, route }) {
-  const [fontsLoaded] = useFonts({
+  const [fontsLoaded] = useFonts({ //carrega as fontes
     Anton: require("../../assets/fonts/Anton-Regular.ttf"),
     Battambang: require("../../assets/fonts/Battambang-Regular.ttf"),
     InriaSans: require("../../assets/fonts/Inria_Sans_Regular_400.ttf"),
   });
-  if (!fontsLoaded) return;
+  if (!fontsLoaded) return; //verifica se as fontes já carregaram
   return (
     <View style={styles.teste}>
       <Image
@@ -85,12 +85,12 @@ export default function Introduction({ navigation, route }) {
 
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate("Home");
+          navigation.navigate("Home"); //Vai para a tela de home
         }}
         style={styles.botaoJogar}
       >
         <Text style={{ fontFamily: "InriaSans", color: "#FFF", fontSize: normalize(48) }}>
-          INICIAR JOGO
+          PREENCHER DADOS
         </Text>
       </TouchableOpacity>
     </View>

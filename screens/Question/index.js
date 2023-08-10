@@ -32,7 +32,7 @@ function sortearQuestoes() {
 }
 
 export default function QuestionPage({ navigation, route }) {
-  const { cpf, email, name, tel } = {
+  const { cpf, email, name, tel } = { //VARIAVEIS VINDA DA ROTA ANTERIOR (HOME)
     cpf: route.params.getcpf,
     email: route.params.getemail,
     name: route.params.getname,
@@ -44,7 +44,7 @@ export default function QuestionPage({ navigation, route }) {
     InriaSans700: require("../../assets/fonts/Inria_Sans_Bold_700.ttf"),
     Jomhuria: require("../../assets/fonts/Jomhuria.ttf"),
   });
-  const [respostas, setRespostas] = useState([
+  const [respostas, setRespostas] = useState([ //ARRAY ONDE FICARÁ TODAS AS RESPOSTAS DO USUÁRIO
     null,
     null,
     null,
@@ -56,29 +56,26 @@ export default function QuestionPage({ navigation, route }) {
     null,
     null,
   ]);
-  const [questionsSelected, setQuestionsSelected] = useState([]);
-  const [numberQuestion, setNumberQuestion] = useState(0);
-  const [tempo, setTempo] = useState(120);
-  let interval = null;
-  function startTimer(setTempo) {
+  const [questionsSelected, setQuestionsSelected] = useState([]); //Questões selecionadas aleatoriamente
+  const [numberQuestion, setNumberQuestion] = useState(0); //Numero da questão atual do usuário
+  const [tempo, setTempo] = useState(120); //Tempo que falta para o usuário terminar as questões
+  const [interval, setIntervalo] = useState(null); //Variável para guardar o interval do ceap
+  function startTimer(setTempo) { //Função que inicia o timer das questões
     let segundos = 0;
     const myInterval = setInterval(() => {
-      if (segundos === 120) {
-        endQuiz(myInterval);
-      }
       segundos++;
       setTempo(120 - segundos);
     }, 1000);
     return myInterval;
   }
-  async function endQuiz(interval) {
+  async function endQuiz(interval) { //Função que encerra o quiz
     let points = 0;
     for (let index in questionsSelected) {
       if (questionsSelected[index].alternativaCorreta === respostas[index]) {
         points++;
       }
     }
-    clearInterval(interval);
+    clearInterval(interval); 
     try {
       const response = await axios.post("https://backend-ambikira.fly.dev/users", {
         name,
@@ -97,18 +94,25 @@ export default function QuestionPage({ navigation, route }) {
         });
       }
     } catch (error) {
-      Alert.alert("Error", "Ocorreu um erro no seu cadastro no banco de dados, verifique seus dados e jogue novamente" + error, [
+      Alert.alert("Error", "Ocorreu um erro no seu cadastro no banco de dados, verifique seus dados e jogue novamente: " + error.response.data + error.response, [
         { text: 'Retornar ao menu principal', onPress: () => navigation.popToTop() },
       ])
     }
   }
 
-  useEffect(() => {
+  useEffect(() => { //Executado a primeira vez que o componente é renderizado
     setQuestionsSelected(sortearQuestoes());
-    interval = startTimer(setTempo);
+    setIntervalo(startTimer(setTempo));
   }, []);
+  useEffect(() => { //Executa toda vez que a variável tempo é atualizada
+    console.log(tempo)
+    if (tempo <= 0) {
+      endQuiz(interval);
+      Alert.alert("Tempo esgotado!", "Seu tempo acabou. Mas não se preocupe, todo seu progresso até agora será salvo. Sua pontuação será liberada logo em seguida!")
+    }
+  }, [tempo])
 
-  if (!fontsLoaded || questionsSelected.length === 0) {
+  if (!fontsLoaded || questionsSelected.length === 0) { //Espera o carregamento das fontes e das questões
     return null;
   }
 
@@ -160,7 +164,16 @@ export default function QuestionPage({ navigation, route }) {
           <TouchableOpacity
             style={styles.nextQuestionButton}
             onPress={() => {
-              setNumberQuestion(numberQuestion + 1);
+              if (respostas[numberQuestion] === null){
+                Alert.alert("Confirmação", "Você tem certeza que deseja prosseguir com a questão em branco? Esteja ciente que não poderá retornar depois, portanto sua resposta ficará como nula.", [{ text: 'Cancelar', onPress: () => { console.log("Cancelled")}}, { text: "Sim, tenho certeza.", onPress: () => {
+                  setNumberQuestion( numberQuestion + 1);
+                }}])
+                return;
+              }
+              else {
+                setNumberQuestion( numberQuestion + 1)
+              }
+              
             }}
           >
             <Text
