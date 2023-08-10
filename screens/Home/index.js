@@ -18,7 +18,6 @@ import { handleCPF, handleTelefone } from "./src/masks";
 import { useFonts } from "expo-font";
 import voltarImg from '../../assets/de-volta.png'
 import normalize from "../../assets/normalizeFont";
-import InputScrollView from 'react-native-input-scroll-view';
 
 function verifiyCPF(getcpf) {
   const num = getcpf;
