@@ -7,6 +7,7 @@ import React from "react";
 import { useFonts } from "expo-font";
 import normalize from "../../assets/normalizeFont";
 
+
 export default function Developers({ navigation, route }) {
   const [fontsLoaded] = useFonts({
     Battambang: require("../../assets/fonts/Battambang-Regular.ttf"),
@@ -60,45 +61,32 @@ export default function Developers({ navigation, route }) {
 
       <View style={styles.textblock}>
         <Text style={styles.title}>Esse aplicativo foi desenvolvido por:</Text>
-        <Text></Text>
         <View style={styles.devNames}>
 
-          <View>
+            <View style={{rowGap:12}}>
             <Text style={styles.devText}>Daniel Vigano</Text>
             <Text style={styles.devText}>Felipe fernandes</Text>
             <Text style={styles.devText}>Gabriel Scarpelin</Text>
             <Text style={styles.devText}>Pedro Henrique</Text>
             <Text style={styles.devText}>Rafael Kaue</Text>
             <Text style={styles.devText}>Vitor Vilela</Text>
-          </View>
-
-          <View>
+            </View>
+            
+            <View style={{rowGap:12}}>
             <Text style={styles.devText}>Eduardo Porto Bispo</Text>
             <Text style={styles.devText}>Gabriel Galdino</Text>
             <Text style={styles.devText}>João Pedro</Text>
             <Text style={styles.devText}>Rafael Souza</Text>
             <Text style={styles.devText}>Thiago Evangalista</Text>
             <Text style={styles.devText}>William Ramos</Text>
+            </View>
+            
           </View>
-
-          <Image
-        source={CeapLogo}
-        style={{
-          width: "35%",
-          bottom:-90,
-          right:100,
-          height: undefined,
-          aspectRatio: 1.30,
-          position: "absolute",
-        }}
-        resizeMode="contain"
-      />  
-        </View>
       </View>
 
       <TouchableOpacity style={styles.botton}
       onPress={()=> {
-        navigation.goBack();
+       navigation.goBack();
       }}>
         <Text style={styles.bottonText}>VOLTAR</Text>
       </TouchableOpacity>
@@ -110,26 +98,29 @@ export default function Developers({ navigation, route }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8f4f4',
-    alignItems: 'center',
-    
+    backgroundColor: '#FFFFFF',
+    justifyContent:'space-around',
   },
   textblock:{
-    width: 350,
-    height: 510,
-    backgroundColor: '#FF3131',
-    borderRadius: 25,
-    padding:15,
-    paddingTop:15,
-    marginBottom:30,
-    marginTop: 36
-
+    backgroundColor: '#F85D17',
+    width: '74%',
+    flex:0.5,
+    height:undefined,
+    borderRadius:25,
+    gap:10,
+    alignSelf:'center',
+    justifyContent:'center'
   },
   
   devNames:{
-    display:'flex',
-    flexDirection:'row',
+    flexDirection:"row",
     justifyContent:'space-around',
+    alignItems:'center', 
+  },
+  devText:{
+    fontSize: normalize(24),
+    color:'#FFFFFF',
+    fontFamily:'Anton'
   },
   title:{
     fontSize: normalize(48),
@@ -137,14 +128,6 @@ const styles = StyleSheet.create({
     textAlign:"center",
     fontFamily:"Anton",
   },
-
-  devText:{
-    fontSize: normalize(24),
-    margin:10,
-    color:'#FFFFFF',
-    fontFamily:"Battambang"
-  },
-
   botton:{
     backgroundColor:'#F0B528',
     borderRadius: 50,
@@ -152,11 +135,11 @@ const styles = StyleSheet.create({
     width:250,
     justifyContent:'center',
     alignItems:'center',
-    marginBottom:20
-    
+    marginBottom:20,
+    alignSelf:'center'
   },
   bottonText:{
     fontSize: normalize(40),
-    color: '#FFFFFF'
+    color: '#000000'
   },
 });
