@@ -36,12 +36,12 @@ function sortearQuestoes() {
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
 export default function QuestionPage({ navigation, route }) {
   const steps = 12;
-  /*const { cpf, email, name, tel } = { //VARIAVEIS VINDA DA ROTA ANTERIOR (HOME)
+  const { cpf, email, name, tel } = { //VARIAVEIS VINDA DA ROTA ANTERIOR (HOME)
     cpf: route.params.getcpf,
     email: route.params.getemail,
     name: route.params.getname,
     tel: route.params.gettel,
-  };*/
+  };
   const [fontsLoaded] = useFonts({
     Imprima: require("../../assets/fonts/Imprima_400.ttf"),
     PassionOne700: require("../../assets/fonts/Passion_One_Bold_700.ttf"),
@@ -114,9 +114,7 @@ export default function QuestionPage({ navigation, route }) {
         points++;
       }
     }
-    
     clearInterval(interval);
-    /*
     try {
       const response = await axios.post("https://backend-ambikira.fly.dev/users", {
         name,
@@ -139,22 +137,22 @@ export default function QuestionPage({ navigation, route }) {
         { text: 'Retornar ao menu principal', onPress: () => navigation.popToTop() },
       ])
     }
-    */
+    
   }
 
   useEffect(() => {
     //Executado a primeira vez que o componente é renderizado
     setQuestionsSelected(sortearQuestoes());
-    //setIntervalo(startTimer(setTempo));
+    setIntervalo(startTimer(setTempo));
   }, []);
   useEffect(() => {
     //Executa toda vez que a variável tempo é atualizada
-    /*const timeTracked = 120 - tempo
+    const timeTracked = 120 - tempo
     setStep(Math.floor(timeTracked/steps))
     if (tempo <= 0) {
       endQuiz(interval);
       Alert.alert("Tempo esgotado!", "Seu tempo acabou. Mas não se preocupe, todo seu progresso até agora será salvo. Sua pontuação será liberada logo em seguida!")
-    }*/
+    }
   }, [tempo]);
 
   if (!fontsLoaded || questionsSelected.length === 0) {

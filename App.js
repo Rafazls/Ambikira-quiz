@@ -23,7 +23,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Questions"
+        initialRouteName="Introduction"
         screenOptions={{
           headerShown: false,
         }}
