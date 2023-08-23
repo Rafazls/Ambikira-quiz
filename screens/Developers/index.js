@@ -48,10 +48,10 @@ export default function Developers({ navigation, route }) {
         <Image
           source={AmbikiraLogo}
           style={{
-            width: "38%",
             height: undefined,
-            aspectRatio: 2.093220,
-            marginRight: 16
+            aspectRatio: 2.09322,
+            marginRight: 16,
+            position:'absolute'
           }}
           resizeMode="contain"
         />
@@ -63,7 +63,7 @@ export default function Developers({ navigation, route }) {
         <Text style={styles.title}>Esse aplicativo foi desenvolvido por:</Text>
         <View style={styles.devNames}>
 
-            <View style={{rowGap:12}}>
+            <View style={{rowGap:8}}>
             <Text style={styles.devText}>Daniel Vigano</Text>
             <Text style={styles.devText}>Felipe fernandes</Text>
             <Text style={styles.devText}>Gabriel Scarpelin</Text>
@@ -72,7 +72,7 @@ export default function Developers({ navigation, route }) {
             <Text style={styles.devText}>Vitor Vilela</Text>
             </View>
             
-            <View style={{rowGap:12}}>
+            <View style={{rowGap:8}}>
             <Text style={styles.devText}>Eduardo Porto Bispo</Text>
             <Text style={styles.devText}>Gabriel Galdino</Text>
             <Text style={styles.devText}>João Pedro</Text>
@@ -103,18 +103,20 @@ const styles = StyleSheet.create({
   },
   textblock:{
     backgroundColor: '#F85D17',
-    width: '74%',
+    width: '75%',
     flex:0.5,
     height:undefined,
     borderRadius:25,
     gap:10,
     alignSelf:'center',
-    justifyContent:'center'
+    justifyContent:'space-around',
+    marginLeft:13,
+    alignItems:"center",
+    justifyContent:"space-around"
   },
   
   devNames:{
     flexDirection:"row",
-    justifyContent:'space-around',
     alignItems:'center', 
   },
   devText:{
