@@ -6,11 +6,11 @@ import {
   Image,
   Alert,
   ActivityIndicator,
+  TextInput
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import logo from "../../assets/home_assets/logo.png";
-import estante from "../../assets/home_assets/estante.png";
-import { TextInput } from "@react-native-material/core";
+import seta from "../../assets/seta.png";
 import { cpf } from "cpf-cnpj-validator";
 import axios from "axios";
 import { handleCPF, handleTelefone } from "./src/masks";
@@ -18,8 +18,11 @@ import { useFonts } from "expo-font";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import voltarImg from '../../assets/de-volta.png'
 import normalize from "../../assets/normalizeFont";
-import Svg, { G, Circle, Defs, Path, Ellipse } from "react-native-svg"
-
+import Svg, { G, Circle, Defs, Path, Ellipse } from "react-native-svg";
+import { SelectList } from 'react-native-dropdown-select-list'
+import { Picker } from "@react-native-picker/picker";
+import SelectDropdown from "react-native-select-dropdown";
+const URL_SERVER = process.env.BACKEND_URL
 function verifiyCPF(getcpf) {
   const num = getcpf;
   cpf.format(num);
@@ -33,6 +36,7 @@ function verifyEmail(email) {
 }
 
 export default function Home({ navigation, route }) {
+  const estandes = ["RBR", "Jive", "RPS", "Vinland", "SPX", "Neo", "Truxt", "JGP", "CS", "Absolute", "Legacy", "Ibiuna", "Dahila", "Genoa", "Verde"]
   const [getname, name] = useState("");
   const [getemail, email] = useState("");
   const [getcpf, cpf] = useState("");
@@ -41,6 +45,7 @@ export default function Home({ navigation, route }) {
   const [parsedCPF, setParsedCPF] = useState("");
   const [loading, setLoading] = useState(false)
   const [check1, setCheck1] = useState(false);
+  const [estande, setEstande] = useState("")
   const InvalidCPFAlert = () =>
     Alert.alert("CPF Inválido!", "Digite novamente!", [
       { text: "OK", onPress: () => console.log("") },
@@ -146,13 +151,13 @@ export default function Home({ navigation, route }) {
         <View style={styles.forms}>
           <Image
             source={require("../../assets/home_assets/user.png")}
-            style={{aspectRatio: 1.0222, width: "5%", height: undefined}}
+            style={{ aspectRatio: 1.0222, width: "5%", height: undefined }}
             resizeMode="contain"
           />
           <TextInput
             style={styles.input}
             label="Nome"
-            variant="standard"
+            placeholder="Nome"
             value={getname}
             onChangeText={name}
           />
@@ -162,14 +167,14 @@ export default function Home({ navigation, route }) {
         <View style={styles.forms}>
           <Image
             source={require("../../assets/home_assets/Email.png")}
-            style={{aspectRatio: 1.3214, width: "4.4%", height: undefined}}
+            style={{ aspectRatio: 1.3214, width: "4.4%", height: undefined }}
             resizeMode="contain"
           />
-          
+
           <TextInput
             label="Email"
             style={styles.input}
-            variant="standard"
+            placeholder="Email"
             value={getemail}
             onChangeText={email}
           />
@@ -179,14 +184,14 @@ export default function Home({ navigation, route }) {
         <View style={styles.forms}>
           <Image
             source={require("../../assets/home_assets/cpf.png")}
-            style={{aspectRatio: 1, width: "5.2%", height: undefined}}
+            style={{ aspectRatio: 1, width: "5.2%", height: undefined }}
             resizeMode="contain"
           />
           <TextInput
             label="CPF"
             style={styles.input}
             keyboardType="number-pad"
-            variant="standard"
+            placeholder="CPF"
             value={parsedCPF}
             onChangeText={(e) => {
               const parsed = handleCPF(e);
@@ -202,13 +207,13 @@ export default function Home({ navigation, route }) {
         <View style={styles.forms}>
           <Image
             source={require("../../assets/home_assets/call.png")}
-            style={{aspectRatio: 0.9782, width: "5.2%", height: undefined}}
+            style={{ aspectRatio: 0.9782, width: "5.2%", height: undefined }}
             resizeMode="contain"
           />
           <TextInput
             label="Telefone"
             style={styles.input}
-            variant="standard"
+            placeholder="Telefone"
             value={parsedTel}
             onChangeText={(e) => {
               const parsed = handleTelefone(e);
@@ -225,15 +230,49 @@ export default function Home({ navigation, route }) {
         <View style={styles.forms}>
           <Image
             source={require("../../assets/home_assets/estante.png")}
-            style={{aspectRatio: 0.9782, width: "5.2%", height: undefined}}
+            style={{ aspectRatio: 0.9782, width: "5.2%", height: undefined, marginRight:16, marginLeft:12 }}
             resizeMode="contain"
           />
-          <TextInput
-            style={styles.input}
-            label="Estante"
-            variant="standard"
-
+          <SelectDropdown
+            data={estandes}
+            buttonStyle={[styles.input, {alignItems:'flex-start', justifyContent:'flex-start'}]}
+            buttonTextStyle={{fontSize:normalize(22), width:"5%",  textAlign:'left'}}
+            defaultButtonText="Estande"
+            renderDropdownIcon={
+              () => {
+                return(
+                  <Svg xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 32 27"
+                  style={{aspectRatio: 1.1851, height: undefined, width: normalize(32)}}
+                  >
+                  <Path
+                    fill="#F3F4FF"
+                    stroke="#F9AC01"
+                    strokeWidth={3}
+                    d="M13.556 24.327 1.845 5.038C1.035 3.705 1.995 2 3.555 2h24.689c1.601 0 2.553 1.788 1.66 3.116l-12.979 19.29a2 2 0 0 1-3.369-.08Z"
+                  />
+                </Svg>
+                )
+              }
+            }
+            dropdownIconPosition="right"
+            onSelect={(selectedItem, index) => {
+              setEstande(selectedItem)
+            }}
+            buttonTextAfterSelection={(selectedItem, index) => {
+              // text represented after item is selected
+              // if data array is an array of objects then return selectedItem.property to render after item is selected
+              return selectedItem
+            }}
+            rowTextForSelection={(item, index) => {
+              // text represented for each item in dropdown
+              // if data array is an array of objects then return item.property to represent item in dropdown
+              return item
+            }}
           />
+
+
         </View>
 
         {/* Termos de uso */}
@@ -258,7 +297,6 @@ export default function Home({ navigation, route }) {
 
 
 
-<<<<<<< HEAD
         <View style={{
           flexDirection: 'row'
         }}>
@@ -275,70 +313,6 @@ export default function Home({ navigation, route }) {
               borderRadius: 15,
               backgroundColor: "#F0B528",
             }}
-=======
-      <TouchableOpacity
-          style={styles.button}
-          onPress={() => {
-            if (
-              getcpf == "" ||
-              getemail == "" ||
-              getname == "" ||
-              gettel == ""
-            ) {
-              console.log("Campo vazio!");
-              Nullcamps();
-              return;
-            }
-            if (verifiyCPF(getcpf) == false) {
-              console.log("CPF inválido");
-              InvalidCPFAlert();
-              return;
-            }
-            if (verifyEmail(getemail) == null) {
-              console.log("Email invalido");
-              InvalidEmailAlert();
-              return;
-            }
-            if (!check1) {
-              Alert.alert(
-                "Aviso",
-                "Você precisa aceitar os termos de Uso para jogar!"
-              );
-              return;
-            }
-            setLoading(true)
-            axios
-              .post("https://backend-ambikira.fly.dev/verify", {
-                cpf: getcpf,
-              })
-              .then((response) => {
-                setLoading(false);
-                if (response.status === 200 && response.data === "Usuário qualificado para jogar") {
-                  navigation.navigate("Questions", {
-                    getname,
-                    getemail,
-                    getcpf,
-                    gettel,
-                  });
-                }
-              })
-              .catch((reject) => {
-                const { response } = reject;
-                setLoading(false);
-                if (
-                  response.data === "Usuário já cadastrado" &&
-                  response.status === 400
-                ) {
-                  console.log("Usuário já cadastrado");
-                  InvalidUserAlert();
-                }
-              });
-              
-          }}
-        >
-          <Text
-            style={{ fontFamily: "InriaSans700", color: "#FFF", fontSize: normalize(32) }}
->>>>>>> 617c46809eb723a17886b06d830faa543b9d829d
           >
             <Image source={voltarImg} style={{ height: undefined, width: "15%", aspectRatio: 1, margin: '4%' }} resizeMode="contain" />
             <Text style={{ fontFamily: "InriaSans700", fontSize: normalize(32) }}>Voltar</Text>
@@ -360,7 +334,8 @@ export default function Home({ navigation, route }) {
                 getcpf == "" ||
                 getemail == "" ||
                 getname == "" ||
-                gettel == ""
+                gettel == "" ||
+                estande == ""
               ) {
                 console.log("Campo vazio!");
                 Nullcamps();
@@ -378,7 +353,7 @@ export default function Home({ navigation, route }) {
               }
               setLoading(true)
               axios
-                .post("https://backend-ambikira.fly.dev/verify", {
+                .post(`https://backend-ambikira.fly.dev/verify`, {
                   cpf: getcpf,
                 })
                 .then((response) => {
@@ -389,6 +364,8 @@ export default function Home({ navigation, route }) {
                       getemail,
                       getcpf,
                       gettel,
+                      estande
+
                     });
                   }
                 })
@@ -438,7 +415,14 @@ const styles = StyleSheet.create({
   },
   input: {
     width: "60%",
-    marginLeft: 8
+    marginLeft: 16,
+    borderWidth: 2,
+    borderColor: "#F9AC01",
+    borderRadius: 500,
+    paddingVertical: normalize(12),
+    paddingHorizontal: normalize(16),
+    justifyContent:'space-between'
+
   },
   icons: {
     padding: "4%",
@@ -456,5 +440,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginTop: 15,
     marginVertical: '4%',
+    width: "65%"
   }
 });

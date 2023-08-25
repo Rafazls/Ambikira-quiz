@@ -129,7 +129,7 @@ export default function Rules({navigation, route}) {
           fontSize: normalize(32),
           color: "#000000",
           textAlign: "center",
-          marginTop: 32
+          marginTop: normalize(80)
         }}
       >
         Antes de jogar, você precisa confirmar que está ciente das regras do
@@ -212,7 +212,7 @@ export default function Rules({navigation, route}) {
           </Text>
         </View>
       </View>
-      <View style={{ flexDirection: "row", marginTop: 28 }}>
+      <View style={{ flexDirection: "row", marginTop: 40 }}>
         <TouchableOpacity
           onPress={() => {
             navigation.goBack();

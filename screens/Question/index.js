@@ -35,12 +35,13 @@ function sortearQuestoes() {
 }
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
 export default function QuestionPage({ navigation, route }) {
- /* const { cpf, email, name, tel } = { //VARIAVEIS VINDA DA ROTA ANTERIOR (HOME)
+    const { cpf, email, name, tel, estande } = { //VARIAVEIS VINDA DA ROTA ANTERIOR (HOME)
     cpf: route.params.getcpf,
     email: route.params.getemail,
     name: route.params.getname,
     tel: route.params.gettel,
-  };*/
+    estande: route.params.estande
+  };
   const [fontsLoaded] = useFonts({
     Imprima: require("../../assets/fonts/Imprima_400.ttf"),
     PassionOne700: require("../../assets/fonts/Passion_One_Bold_700.ttf"),
@@ -116,12 +117,13 @@ export default function QuestionPage({ navigation, route }) {
     }
     clearInterval(interval);
     setTimeFinished(false)
-    /*try {
+    try {
       const response = await axios.post("https://backend-ambikira.fly.dev/users", {
         name,
         email,
         cpf,
         tel,
+        estande,
         time: 120 - tempo,
         pontos: points,
       });
@@ -138,7 +140,7 @@ export default function QuestionPage({ navigation, route }) {
         { text: 'Retornar ao menu principal', onPress: () => navigation.popToTop() },
       ])
     }
-    */
+    
   }
 
   useEffect(() => {
