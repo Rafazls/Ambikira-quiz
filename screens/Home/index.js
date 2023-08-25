@@ -158,6 +158,7 @@ export default function Home({ navigation, route }) {
             style={styles.input}
             label="Nome"
             placeholder="Nome"
+            placeholderTextColor={'#000'}
             value={getname}
             onChangeText={name}
           />
@@ -175,6 +176,7 @@ export default function Home({ navigation, route }) {
             label="Email"
             style={styles.input}
             placeholder="Email"
+            placeholderTextColor={'#000'}
             value={getemail}
             onChangeText={email}
           />
@@ -192,6 +194,7 @@ export default function Home({ navigation, route }) {
             style={styles.input}
             keyboardType="number-pad"
             placeholder="CPF"
+            placeholderTextColor={'#000'}
             value={parsedCPF}
             onChangeText={(e) => {
               const parsed = handleCPF(e);
@@ -214,6 +217,7 @@ export default function Home({ navigation, route }) {
             label="Telefone"
             style={styles.input}
             placeholder="Telefone"
+            placeholderTextColor={'#000'}
             value={parsedTel}
             onChangeText={(e) => {
               const parsed = handleTelefone(e);
@@ -351,9 +355,10 @@ export default function Home({ navigation, route }) {
                 InvalidEmailAlert();
                 return;
               }
+              console.log(URL_SERVER)
               setLoading(true)
               axios
-                .post(`https://backend-ambikira.fly.dev/verify`, {
+                .post(`${URL_SERVER}/verify`, {
                   cpf: getcpf,
                 })
                 .then((response) => {

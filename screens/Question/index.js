@@ -19,6 +19,7 @@ import Question from "./components/Question";
 import FinishAlert from "./components/FinishTimeModal";
 import ButtonQuestion from "./components/button";
 import backgroundImg from '../../assets/questions_assets/background.png'
+const URL_SERVER = process.env.BACKEND_URL
 
 function sortearQuestoes() {
   const questionsSelected = [];
@@ -118,7 +119,7 @@ export default function QuestionPage({ navigation, route }) {
     clearInterval(interval);
     setTimeFinished(false)
     try {
-      const response = await axios.post("https://backend-ambikira.fly.dev/users", {
+      const response = await axios.post(`${URL_SERVER}/users`, {
         name,
         email,
         cpf,
