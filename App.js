@@ -37,7 +37,6 @@ export default function App() {
         <Stack.Screen component={Developers} name="Developers" />
         <Stack.Screen component={Rules} name="Rules" />
         <Stack.Group screenOptions={{ presentation: 'fullScreenModal', animation: 'fade_from_bottom'}}>
-          <Stack.Screen component={Rules} name="Terms" />
           <Stack.Screen component={Terms} name="TermsAndConditions" />
         </Stack.Group>
       </Stack.Navigator>
