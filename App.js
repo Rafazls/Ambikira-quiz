@@ -34,8 +34,9 @@ export default function App() {
         <Stack.Screen component={QuestionPage} name="Questions" />
         <Stack.Screen component={Finish} name="Finish" initialParams={{points: 0}}/>
         <Stack.Screen component={Developers} name="Developers" />
+        <Stack.Screen component={Rules} name="Rules" />
         <Stack.Group screenOptions={{ presentation: 'fullScreenModal', animation: 'fade_from_bottom'}}>
-          <Stack.Screen component={Rules} name="Rules" />
+          <Stack.Screen component={Rules} name="Terms" />
         </Stack.Group>
       </Stack.Navigator>
     </NavigationContainer>

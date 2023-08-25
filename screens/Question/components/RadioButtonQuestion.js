@@ -19,7 +19,7 @@ export default function RadioSelection({
   return (
     <>
       <TouchableWithoutFeedback onPress={onSelected} style={{maxHeight: "20%", width: "100%", height: "20%"}}>
-        <Text style={status ? [styles.containerAlternatives, { opacity: 1 }] : [styles.containerAlternatives, { opacity: 0.5 }]}>
+        <Text style={status ? [styles.containerAlternatives, styles.checked] : [styles.containerAlternatives, styles.unchecked]}>
           {question}
         </Text>
       </TouchableWithoutFeedback>
@@ -29,15 +29,15 @@ export default function RadioSelection({
 
 const styles = StyleSheet.create({
   checked: {
-    backgroundColor: "#FFEDC2",
+    backgroundColor: "#FFC648",
   },
   unchecked: {
     backgroundColor: "#FFF",
   },
   containerAlternatives: {
      fontFamily: "MontserratMedium", 
-     fontSize: normalize(21), 
-     color: "#FFF", 
+     fontSize: normalize(20), 
+     color: "black", 
      backgroundColor: "#7380EB", 
      padding: 12, 
      borderRadius: 12,

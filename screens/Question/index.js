@@ -80,7 +80,6 @@ export default function QuestionPage({ navigation, route }) {
     return myInterval;
   }
   function nextQuestion() {
-    console.log(respostas)
     if (respostas[numberQuestion - 1] === null){
       Alert.alert("Confirmação", "Você tem certeza que deseja prosseguir com a questão em branco? Esteja ciente que não poderá retornar depois, portanto sua resposta ficará como nula.", [{ text: 'Cancelar', onPress: () => { console.log("Cancelled")}}, { text: "Sim, tenho certeza.", onPress: () => {
         setNumberQuestion( numberQuestion + 1);
@@ -131,7 +130,7 @@ export default function QuestionPage({ navigation, route }) {
         response.data === "Dados cadastrados com sucesso"
       ) {
         navigation.navigate("Finish", {
-          points
+          points, name
         });
       }
     } catch (error) {
@@ -160,7 +159,6 @@ export default function QuestionPage({ navigation, route }) {
   }
   return (
     <View style={styles.container}>
-      <Image source={backgroundImg} style={{position: 'absolute', zIndex: -100, width: "100%", height: undefined, aspectRatio: SCREEN_WIDTH / SCREEN_HEIGHT, minHeight: "100%" }} resizeMode="cover" />
       <FinishAlert visible={timeFinished} endQuiz={endQuiz}/>
       <ProgressBarComponent tempo={tempo} />
       <Animated.View

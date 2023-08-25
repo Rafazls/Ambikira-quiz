@@ -30,7 +30,7 @@ export default function Question({
   }
   return (
     <>
-      <LinearGradient colors={["#1C2682", "#5B61F9"]} style={numeroQuestaoAtual > 0 ? [styles.questionView, {marginLeft: 24}] : [styles.questionView]} onLayout={questionLayout}>
+      <LinearGradient colors={["#F85D17", "#F85D17"]} style={numeroQuestaoAtual > 0 ? [styles.questionView, {marginLeft: 24}] : [styles.questionView]} onLayout={questionLayout}>
         <Text style={{ fontFamily: "MontserratMedium", fontSize: normalize(22), color: "#FFF", }}>
           Questão {numeroQuestaoAtual + 1}/10
         </Text>

@@ -34,13 +34,13 @@ export default function ProgressBarComponent({ tempo }) {
   })
   return (
     <View style={styles.fundoProgressBar} >
-      <Text style={{color: "#FFF", fontSize: normalize(32), fontWeight: 'bold'}} >{Math.floor(tempo / 60)}:{tempo % 60 < 10 ? "0" + (tempo % 60) : tempo % 60}</Text>
+      <Text style={{color: "black", fontSize: normalize(32), fontWeight: 'bold'}} >{Math.floor(tempo / 60)}:{tempo % 60 < 10 ? "0" + (tempo % 60) : tempo % 60}</Text>
       <Image
         source={clock}
         style={{ zIndex: -99, height: undefined, width: "12.5%", aspectRatio: 1.16, position: 'absolute', right: "2%"}}
         resizeMode="contain"
       />
-      <Animated.View style={{width: animatedInterpolated, height: "100%", backgroundColor: "#1C2682", borderRadius: 500, position: 'absolute', zIndex: -9, left: 0, top: 0}}>
+      <Animated.View style={{width: animatedInterpolated, height: "100%", backgroundColor: "#F8AE00", borderRadius: 500, position: 'absolute', zIndex: -9, left: 0, top: 0}}>
       </Animated.View>
     </View>
   );
@@ -59,11 +59,11 @@ const styles = StyleSheet.create({
   fundoProgressBar: {
     width: "75%",
     height: undefined,
-    backgroundColor: "#C0B9B9",
+    backgroundColor: "#FFF",
     marginTop: "7.5%",
     borderRadius: 500,
-    borderColor: "#1C2682",
-    borderWidth: 0,
+    borderColor: "#F8AE00",
+    borderWidth: 4,
     borderCurve: 500,
     alignItems: 'center',
     justifyContent: 'center',

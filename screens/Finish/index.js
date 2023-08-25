@@ -1,10 +1,10 @@
 import { Text, View, StyleSheet, TouchableOpacity, Image } from "react-native";
-import circleBackground from "../../assets/circle-finish-page-1.png";
-import circleBackground2 from "../../assets/circle-finish-page-2.png";
-import logo from "../../assets/logoApp.png";
 import React from "react";
 import { useFonts } from "expo-font";
 import normalize from "../../assets/normalizeFont";
+import { Circle, Defs, G, Path, Svg } from "react-native-svg";
+import logo from '../../assets/biggestLogo.png'
+import fogueteIcon from '../../assets/foguete.png'
 
 export default function Finish({ navigation, route }) {
   const [fontsLoaded] = useFonts({
@@ -12,85 +12,88 @@ export default function Finish({ navigation, route }) {
     Battambang: require("../../assets/fonts/Battambang-Regular.ttf"),
     InriaSans: require("../../assets/fonts/Inria_Sans_Regular_400.ttf"),
     PassionOne700: require("../../assets/fonts/Passion_One_Bold_700.ttf"),
+    MontserratSemiBold: require("../../assets/fonts/Montserrat-SemiBold.ttf"),
+    MontserratExtraBold: require("../../assets/fonts/Montserrat-ExtraBold.ttf"),
+    MontserratBold: require("../../assets/fonts/Montserrat-Bold.ttf"),
   });
   if (!fontsLoaded) return;
   return (
     <View style={styles.teste}>
-      <Image
-        source={logo}
+      {/*ICONE SUPERIOR DIREITO*/}
+      <Svg
+        viewBox="0 0 251 205"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
         style={{
-          position: "absolute",
-          left: "5%",
-          top: "5%",
+          aspectRatio: 1.2243,
           width: "30%",
           height: undefined,
-          aspectRatio: 2.313559322,
-        }}
-        resizeMode="contain"
-      />
-
-      <Image
-        source={circleBackground}
-        style={{
-          position: "absolute",
-          left: 0,
-          bottom: 0,
-          width: "25%",
-          height: undefined,
-          aspectRatio: 1.057416268,
-        }}
-        resizeMode="contain"
-      />
-
-      <Image
-        source={circleBackground2}
-        style={{
-          position: "absolute",
-          right: 0,
           top: 0,
-          width: "35%",
-          height: undefined,
-          aspectRatio: 1.243243243,
+          right: 0,
+          position: "absolute",
         }}
-        resizeMode="contain"
-      />
-      <Text style={styles.textoQuadrado}>
-          Muito obrigado por ter jogado conosco!
-      </Text>
-      <Text style={{fontFamily: "Battambang", fontSize: normalize(32)}}>Sua pontuação foi:</Text>
-      <View style={{backgroundColor: "#7079F3", paddingHorizontal: 32, paddingVertical: 12, borderRadius: 24, marginTop: 20}}>
-        <Text style={{fontFamily: "PassionOne700", color: "#FFF", fontSize: normalize(72)}}>{route.params.points}/15</Text>
-      </View>
-      <View style={styles.quadrado}>
-        <Text style={styles.textoQuadrado2}>
-          Agradecemos por participar do nosso quiz sobre Educação no Brasil!
-          Esperamos que você tenha desfrutado da experiência de testar seus
-          conhecimentos e aprender mais sobre o assunto. Continue nos
-          acompanhando para mais desafios e conteúdos educativos. Seu interesse
-          em aprender é fundamental para um futuro mais brilhante.
-        </Text>
-      </View>
-
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate("Introduction");
-        }}
-        style={styles.botaoInicio}
       >
-        <Text style={{ fontFamily: "InriaSans", fontSize: normalize(48), color: "#FFF" }}>
-          INÍCIO
+        <G filter="url(#filter0_d_718_107)">
+          <Circle
+            cx={134.634}
+            cy={134.634}
+            r={134.634}
+            transform="matrix(-.73546 -.67756 .65262 -.75768 198.037 204.466)"
+            fill="#F85D17"
+          />
+          <Path
+            d="M317 46c0 77.294-63.549 140-142 140-78.45 0-142-62.706-142-140S96.55-94 175-94c78.451 0 142 62.706 142 140z"
+            stroke="#000"
+            strokeWidth={4}
+          />
+        </G>
+        <Defs></Defs>
+      </Svg>
+      {/*CANTO INFERIOR ESQUERDO*/}
+      <Svg
+      viewBox="0 0 208 176"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      style={{aspectRatio: 1.181818, width: "25%", height: undefined, bottom: 0, left: 0, position: 'absolute'}}
+    >
+      <Path
+        d="M206.5 159.5c0 87.176-75.129 158-168 158s-168-70.824-168-158 75.129-158 168-158 168 70.824 168 158z"
+        stroke="#F85D17"
+        strokeWidth={3}
+      />
+    </Svg>
+    {/*RESTANTE DA PÁGINA*/}
+    <Image source={logo} style={{aspectRatio: 1.961722, width: "50%", height: undefined, }} resizeMode="contain"/>
+    <View style={{paddingHorizontal: 32, backgroundColor: "#F8AE00", borderRadius: 20, width: "75%", alignItems: 'center', height: "55%", justifyContent: 'space-around'}}>
+      <View style={{flexDirection: 'row'}}>
+        <Image source={fogueteIcon} style={{aspectRatio: 1, width: normalize(152), height: undefined}} resizeMode="contain"/>
+        <Text style={{fontFamily: "MontserratSemiBold", fontSize: normalize(28), color: 'black', maxWidth: '50%'}}>
+        {<Text style={{fontFamily: "MontserratSemiBold", fontSize: normalize(28), color: '#5365FF'}}>{route.params.name}</Text>}, obrigado por participar do Quiz Ambikira! {"\n"}Sua pontuação foi...
         </Text>
-      </TouchableOpacity>
+      </View>
+      <View style={{padding: 26, backgroundColor: "#F85D17", borderRadius: 16}}>
+        <Text style={{fontFamily: "MontserratExtraBold", fontSize: normalize(96), color: "#FFF"}}>
+          {route.params.points}/10
+        </Text>
+      </View>
+      <Text style={{fontFamily: "MontserratBold", fontSize: normalize(28), textAlign: 'center', }}>
+      Caso seja o ganhador, entraremos em contato em breve.
+      </Text>
+    </View>
       <TouchableOpacity
         onPress={() => {
           navigation.navigate("Developers");
         }}
-        style={styles.botaoDevs}
+        style={styles.botaoJogar}
       >
         <Text
-          style={{ fontFamily: "PassionOne700", fontSize: normalize(32), color: "#FFF" }}
+          style={{
+            fontFamily: "InriaSans",
+              color: "#FFF",
+              fontSize: normalize(36),
+          }}
         >
-          Desenvolvedores
+          PRÓXIMO
         </Text>
       </TouchableOpacity>
     </View>
@@ -140,13 +143,11 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
   },
-  botaoDevs: {
-    backgroundColor: "#FF3131",
-    marginTop: 24,
-    paddingVertical: 12,
+  botaoJogar: {
+    backgroundColor: "#000000",
+    paddingVertical: 14,
     paddingHorizontal: 32,
-    borderRadius: 50,
-    fontWeight: "bold",
-    textAlign: "center",
+    borderRadius: 500,
+    marginTop: normalize(80)
   },
 });
