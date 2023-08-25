@@ -10,6 +10,7 @@ import Finish from "./screens/Finish";
 import Developers from './screens/Developers'
 import { useEffect } from "react";
 import Rules from "./screens/Rules";
+import Terms from './screens/Terms_and_conditions';
 
 const Stack = createNativeStackNavigator();
 
@@ -37,6 +38,7 @@ export default function App() {
         <Stack.Screen component={Rules} name="Rules" />
         <Stack.Group screenOptions={{ presentation: 'fullScreenModal', animation: 'fade_from_bottom'}}>
           <Stack.Screen component={Rules} name="Terms" />
+          <Stack.Screen component={Terms} name="TermsAndConditions" />
         </Stack.Group>
       </Stack.Navigator>
     </NavigationContainer>

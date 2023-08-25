@@ -8,16 +8,17 @@ import {
   ActivityIndicator,
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import vect1 from "../../assets/home_assets/grup1.png";
-import vect2 from "../../assets/home_assets/grup2.png";
 import logo from "../../assets/home_assets/logo.png";
+import estante from "../../assets/home_assets/estante.png";
 import { TextInput } from "@react-native-material/core";
 import { cpf } from "cpf-cnpj-validator";
 import axios from "axios";
 import { handleCPF, handleTelefone } from "./src/masks";
 import { useFonts } from "expo-font";
+import BouncyCheckbox from "react-native-bouncy-checkbox";
 import voltarImg from '../../assets/de-volta.png'
 import normalize from "../../assets/normalizeFont";
+import Svg, { G, Circle, Defs, Path, Ellipse } from "react-native-svg"
 
 function verifiyCPF(getcpf) {
   const num = getcpf;
@@ -39,6 +40,7 @@ export default function Home({ navigation, route }) {
   const [parsedTel, setParsedTel] = useState("");
   const [parsedCPF, setParsedCPF] = useState("");
   const [ loading, setLoading ] = useState(false)
+  const [check1, setCheck1] = useState(false);
   const InvalidCPFAlert = () =>
     Alert.alert("CPF Inválido!", "Digite novamente!", [
       { text: "OK", onPress: () => console.log("") },
@@ -65,56 +67,80 @@ export default function Home({ navigation, route }) {
     /* Container */
     <View style={styles.container}>
       {/* Vetores e logo */}
-      <Image
-        source={vect1}
-        style={{
-          width: "50%",
-          left: 0,
-          height: undefined,
-          aspectRatio: 1.65,
-          position: "absolute",
-        }}
-        resizeMode="contain"
+      <Svg 
+      viewBox="0 0 420 272"
+      xmlns="http://www.w3.org/2000/svg" fill="none" 
+      style={{
+        width: "55%",
+        left: 0,
+        height: undefined,
+        aspectRatio: 1.65,
+        position: "absolute",
+      }}>
+    <G filter="url(#a)">
+      <Circle
+        cx={134.634}
+        cy={134.634}
+        r={134.634}
+        fill="#F85D17"
+        transform="matrix(-.73546 -.67756 .65262 -.75768 68.037 245.161)"
       />
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate("Introduction");
-        }}
-        style={styles.out}
-      >
-        <Image source={voltarImg} style={{height: undefined, width: "15%", aspectRatio: 1}} resizeMode="contain"/>
-      </TouchableOpacity>
-      <Image
-        source={vect2}
-        style={{
-          width: "31%",
-          right: 0,
-          bottom: 0,
-          height: undefined,
-          aspectRatio: 0.609929078,
-          position: "absolute",
-        }}
-        resizeMode="contain"
+      <Circle
+        cx={157.664}
+        cy={157.664}
+        r={155.664}
+        stroke="#000"
+        strokeWidth={4}
+        transform="matrix(.93737 -.34834 .37945 .92521 -22.976 -98.158)"
       />
-      <Image
-        source={logo}
-        style={{
-          width: "50%",
-          left: "25%",
-          height: undefined,
-          aspectRatio: 2.35555555,
-          marginTop: "20%",
-        }}
-        resizeMode="contain"
+    </G>
+    <Defs></Defs>
+  </Svg>
+  <Image source={logo} style={{ width: "30%", aspectRatio: 2.35632, height: undefined, alignSelf: 'flex-end', top:'4%',right:'4%' }} resizeMode="contain"/>
+
+      <Svg xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 240 1"
+              fill="none"  
+      style={{
+                width: "25%",
+                right: 0,
+                bottom: 0,
+                height: undefined,
+                aspectRatio: 0.609929078,
+                position: "absolute",
+              }}>
+    <Ellipse
+      cx={165}
+      cy={163.382}
+      fill="#F9AC01"
+      rx={164.284}
+      ry={162.825}
+      transform="rotate(152.421 165 163.382)"
+    />
+    <G filter="url(#a)">
+      <Path
+        stroke="#000"
+        strokeWidth={4}
+        d="M112.21 309.69c-48.36-92.586-14.836-205.504 74.695-252.268 89.531-46.763 201.358-9.764 249.717 82.822 48.36 92.586 14.837 205.504-74.694 252.268-89.531 46.764-201.358 9.765-249.718-82.822Z"
+        shapeRendering="crispEdges"
       />
+    </G>
+    <Defs></Defs>
+  </Svg>
+    
       {/* Formulário */}
       <View
         style={{
           left: "10%",
           justifyContent: "space-between",
-          marginTop: "10%",
+          marginTop: "5%",
+          
         }}
       >
+
+<Text style={{fontFamily: 'MontserratMedium', fontSize: normalize(30), color: 'black', marginTop: "15%",fontWeight: 'bold', marginVertical:'3%'}}>
+  Os dados a seguir são solicitados a fim de que possamos{"\n"} identificar a sua pontuação no ranking {'\n'} e fazer contato com os(as) vencedores(as).
+  </Text>
         {/* Nome */}
         <View style={styles.forms}>
           <Image
@@ -189,9 +215,74 @@ export default function Home({ navigation, route }) {
           />
         </View>
 
-        <TouchableOpacity
+ {/* Estantes */}
+ <View style={styles.forms}>
+          <Image
+            source={require("../../assets/home_assets/estante.png")}
+            style={styles.icons}
+          />
+          <TextInput
+            style={styles.input}
+            label="Estante"
+            variant="standard"
+
+          />
+        </View>
+
+        {/* Termos de uso */}
+        <View style={styles.checkBoxView}>
+          <BouncyCheckbox
+            fillColor="#F85D17"
+            innerIconStyle={{ borderRadius: 4, borderWidth: 2 }}
+            iconStyle={{ borderRadius: 4 }}
+            style={{ alignSelf: "flex-start" }}
+            onPress={(checked) => setCheck1(checked)}
+          />
+
+
+  <Text style={styles.fontCheckBox}>
+            Eu li e aceito os  <TouchableOpacity
+        onPress={() => {
+          navigation.navigate("TermsAndConditions");
+        }}
+        style={styles.fontCheckBox}
+      ><Text style={styles.fontCheckBox}>termos de uso </Text> 
+      </TouchableOpacity>  e a política de privacidade referente ao uso de dados
+          </Text>
+        </View>
+
+
+         
+<View style={{
+  flexDirection:'row', 
+}}>
+<TouchableOpacity
+        onPress={() => {
+          navigation.navigate("Introduction");
+        }}
+        style={{flexDirection:'row',
+        width: "30%",
+        height: "30%",
+        justifyContent:'center',
+        alignItems: "center",
+        borderRadius: 15,
+        backgroundColor: "#F0B528",}}
+      >
+        <Image source={voltarImg} style={{height: undefined, width: "15%", aspectRatio: 1, margin:'4%'}} resizeMode="contain"/>
+        <Text style={{fontFamily: "InriaSans700",  fontSize: normalize(32)}}>Voltar</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
           style={styles.button}
           onPress={() => {
+
+            if (!check1) {
+              Alert.alert(
+                "Aviso",
+                "Você precisa aceitar os termos de Uso para jogar!"
+              );
+              return;
+            }
 
             if (
               getcpf == "" ||
@@ -245,9 +336,12 @@ export default function Home({ navigation, route }) {
           <Text
             style={{ fontFamily: "InriaSans700", color: "#FFF", fontSize: normalize(32) }}
           >
-            COMEÇAR O JOGO
+            COMEÇAR 
           </Text>
         </TouchableOpacity>
+      
+</View>
+ 
       </View>
     </View>
   ) : (
@@ -262,34 +356,31 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   button: {
-    width: "50%",
-    height: "12%",
+    width: "30%",
+    height: "30%",
     left: "18%",
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 15,
-    backgroundColor: "#F0B528",
+    backgroundColor: "#F85D17",
   },
   input: {
     width: "60%",
   },
   icons: {
-    padding: "5%",
+    padding: "4%",
     margin: "3%",
-    height: "5%",
-    width: "5%",
+    height: "4%",
+    width: "4%",
     resizeMode: "stretch",
     alignItems: "center",
   },
   forms: {
     flexDirection: "row",
   },
-  out: {
-    width: "40%",
-    height: "6%",
-    left: "65%",
-    top: "5%",
-    justifyContent: "center",
-    alignItems: "center",
-  },
+  checkBoxView: {
+    flexDirection: "row",
+    width: "50%",
+    marginTop: 24
+  }
 });

@@ -35,11 +35,6 @@
         "./plugins/withDisableForcedDarkModeAndroid.js",
         {}
       ]
-    ],
-    "extra": {
-      "eas": {
-        "projectId": "f9ddefcc-bb68-43e6-92d6-561e7cff7124"
-      }
-    }
+    ]
   }
 }
