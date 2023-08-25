@@ -139,7 +139,7 @@ export default function Home({ navigation, route }) {
       >
 
 <Text style={{fontFamily: 'MontserratMedium', fontSize: normalize(30), color: 'black', marginTop: "15%",fontWeight: 'bold', marginVertical:'3%'}}>
-  Os dados a seguir são solicitados a fim de que possamos{"\n"} identificar a sua pontuação no ranking {'\n'} e fazer contato com os(as) vencedores(as).
+  Os dados a seguir são solicitados a fim de que possamos{"\n"}identificar a sua pontuação no ranking e {'\n'}fazer contato com os(as) vencedores(as).
   </Text>
         {/* Nome */}
         <View style={styles.forms}>
@@ -240,21 +240,20 @@ export default function Home({ navigation, route }) {
           />
 
 
-  <Text style={styles.fontCheckBox}>
-            Eu li e aceito os  <TouchableOpacity
+ 
+              <TouchableOpacity
         onPress={() => {
           navigation.navigate("TermsAndConditions");
         }}
-        style={styles.fontCheckBox}
-      ><Text style={styles.fontCheckBox}>termos de uso </Text> 
-      </TouchableOpacity>  e a política de privacidade referente ao uso de dados
-          </Text>
+      ><Text  style={{fontWeight: 'bold',fontFamily: 'MontserratMedium', fontSize: normalize(24)}}>Eu li e aceito os termos de uso e a política de privacidade referente ao uso de dados.</Text> 
+      </TouchableOpacity> 
         </View>
 
 
          
 <View style={{
   flexDirection:'row', 
+  marginLeft:'10%'
 }}>
 <TouchableOpacity
         onPress={() => {
@@ -381,6 +380,8 @@ const styles = StyleSheet.create({
   checkBoxView: {
     flexDirection: "row",
     width: "50%",
-    marginTop: 24
+    marginTop: 15,
+    marginLeft:'7%',
+    marginVertical:'4%'
   }
 });
