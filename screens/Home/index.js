@@ -257,7 +257,7 @@ export default function Home({ navigation, route }) {
 }}>
 <TouchableOpacity
         onPress={() => {
-          navigation.navigate("Introduction");
+          navigation.navigate("Developers");
         }}
         style={{flexDirection:'row',
         width: "30%",
@@ -274,15 +274,6 @@ export default function Home({ navigation, route }) {
       <TouchableOpacity
           style={styles.button}
           onPress={() => {
-
-            if (!check1) {
-              Alert.alert(
-                "Aviso",
-                "Você precisa aceitar os termos de Uso para jogar!"
-              );
-              return;
-            }
-
             if (
               getcpf == "" ||
               getemail == "" ||
@@ -301,6 +292,13 @@ export default function Home({ navigation, route }) {
             if (verifyEmail(getemail) == null) {
               console.log("Email invalido");
               InvalidEmailAlert();
+              return;
+            }
+            if (!check1) {
+              Alert.alert(
+                "Aviso",
+                "Você precisa aceitar os termos de Uso para jogar!"
+              );
               return;
             }
             setLoading(true)
@@ -330,6 +328,7 @@ export default function Home({ navigation, route }) {
                   InvalidUserAlert();
                 }
               });
+              
           }}
         >
           <Text
