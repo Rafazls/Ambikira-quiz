@@ -18,6 +18,7 @@ import {
   Path,
   Stop,
   Svg,
+  
 } from "react-native-svg";
 import normalize from "../../assets/normalizeFont";
 import BouncyCheckbox from "react-native-bouncy-checkbox";

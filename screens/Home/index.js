@@ -258,6 +258,7 @@ export default function Home({ navigation, route }) {
 
 
 
+<<<<<<< HEAD
         <View style={{
           flexDirection: 'row'
         }}>
@@ -274,6 +275,70 @@ export default function Home({ navigation, route }) {
               borderRadius: 15,
               backgroundColor: "#F0B528",
             }}
+=======
+      <TouchableOpacity
+          style={styles.button}
+          onPress={() => {
+            if (
+              getcpf == "" ||
+              getemail == "" ||
+              getname == "" ||
+              gettel == ""
+            ) {
+              console.log("Campo vazio!");
+              Nullcamps();
+              return;
+            }
+            if (verifiyCPF(getcpf) == false) {
+              console.log("CPF inválido");
+              InvalidCPFAlert();
+              return;
+            }
+            if (verifyEmail(getemail) == null) {
+              console.log("Email invalido");
+              InvalidEmailAlert();
+              return;
+            }
+            if (!check1) {
+              Alert.alert(
+                "Aviso",
+                "Você precisa aceitar os termos de Uso para jogar!"
+              );
+              return;
+            }
+            setLoading(true)
+            axios
+              .post("https://backend-ambikira.fly.dev/verify", {
+                cpf: getcpf,
+              })
+              .then((response) => {
+                setLoading(false);
+                if (response.status === 200 && response.data === "Usuário qualificado para jogar") {
+                  navigation.navigate("Questions", {
+                    getname,
+                    getemail,
+                    getcpf,
+                    gettel,
+                  });
+                }
+              })
+              .catch((reject) => {
+                const { response } = reject;
+                setLoading(false);
+                if (
+                  response.data === "Usuário já cadastrado" &&
+                  response.status === 400
+                ) {
+                  console.log("Usuário já cadastrado");
+                  InvalidUserAlert();
+                }
+              });
+              
+          }}
+        >
+          <Text
+            style={{ fontFamily: "InriaSans700", color: "#FFF", fontSize: normalize(32) }}
+>>>>>>> 617c46809eb723a17886b06d830faa543b9d829d
           >
             <Image source={voltarImg} style={{ height: undefined, width: "15%", aspectRatio: 1, margin: '4%' }} resizeMode="contain" />
             <Text style={{ fontFamily: "InriaSans700", fontSize: normalize(32) }}>Voltar</Text>
