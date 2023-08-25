@@ -257,7 +257,7 @@ export default function Home({ navigation, route }) {
 }}>
 <TouchableOpacity
         onPress={() => {
-          navigation.navigate("Developers");
+          navigation.navigate("Introduction");
         }}
         style={{flexDirection:'row',
         width: "30%",
