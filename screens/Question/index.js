@@ -24,7 +24,7 @@ const URL_SERVER = process.env.BACKEND_URL
 function sortearQuestoes() {
   const questionsSelected = [];
   const questionsSorted = [];
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 6; i++) {
     let randomNumberQuestion = Math.floor(Math.random() * questions.length);
     while (questionsSorted.includes(randomNumberQuestion)) {
       randomNumberQuestion = Math.floor(Math.random() * questions.length);
@@ -197,7 +197,7 @@ export default function QuestionPage({ navigation, route }) {
           );
         })}
       </Animated.View>
-      {numberQuestion === 10 ? (<ButtonQuestion onPress={endQuiz} text={"FINALIZAR"}/>) : (<ButtonQuestion onPress={nextQuestion} text={"PRÓXIMA"} />)
+      {numberQuestion >= questionsSelected.length ? (<ButtonQuestion onPress={endQuiz} text={"FINALIZAR"}/>) : (<ButtonQuestion onPress={nextQuestion} text={"PRÓXIMA"} />)
       }
     </View>
   );

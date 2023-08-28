@@ -126,7 +126,7 @@ Este aplicativo foi desenvolvido por alunos do{'\n'}CEAP – Centro Educacional 
       onPress={()=> {
        navigation.navigate("Introduction");
       }}>
-        <Text style={styles.bottonText}>VOLTAR</Text>
+        <Text style={styles.bottonText}>CONCLUIR</Text>
       </TouchableOpacity>
 
     </View>
@@ -172,15 +172,16 @@ const styles = StyleSheet.create({
   botton:{
     backgroundColor:'#F0B528',
     borderRadius: 50,
-    height:80,
-    width:250,
+    height:normalize(77),
+    width:normalize(247),
     justifyContent:'center',
     alignItems:'center',
     marginBottom:20,
     alignSelf:'center'
   },
   bottonText:{
-    fontSize: normalize(40),
-    color: '#000000'
+    fontSize: normalize(32),
+    color: '#000000',
+    fontFamily: "MontserratBold"
   },
 });

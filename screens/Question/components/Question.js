@@ -32,7 +32,7 @@ export default function Question({
     <>
       <LinearGradient colors={["#F85D17", "#F85D17"]} style={numeroQuestaoAtual > 0 ? [styles.questionView, {marginLeft: 24}] : [styles.questionView]} onLayout={questionLayout}>
         <Text style={{ fontFamily: "MontserratMedium", fontSize: normalize(22), color: "#FFF", }}>
-          Questão {numeroQuestaoAtual + 1}/10
+          Questão {numeroQuestaoAtual + 1}/6
         </Text>
         <Text style={{color: "#FFF", fontSize: normalize(26), width: "100%", textAlign: 'center', fontFamily: "MontserratBold", marginTop: 40, marginBottom: 40}}>
           {questaoAtual.pergunta}

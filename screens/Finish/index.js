@@ -73,7 +73,7 @@ export default function Finish({ navigation, route }) {
       </View>
       <View style={{padding: 26, backgroundColor: "#F85D17", borderRadius: 16}}>
         <Text style={{fontFamily: "MontserratExtraBold", fontSize: normalize(96), color: "#FFF"}}>
-          {route.params.points}/10
+          {route.params.points}/6
         </Text>
       </View>
       <Text style={{fontFamily: "MontserratBold", fontSize: normalize(28), textAlign: 'center', }}>

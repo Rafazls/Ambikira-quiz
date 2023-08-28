@@ -77,7 +77,7 @@ export default function Introduction({ navigation, route }) {
       <View style={{paddingHorizontal: normalize(100), flex: 1, paddingVertical: normalize(48), alignItems: 'center'}}>
         <Image
           source={logo}
-          style={{ width: "30%", aspectRatio: 2.35632, height: undefined, alignSelf: 'flex-start' }}
+          style={{ width: normalize(205), aspectRatio: 2.35632, height: undefined, alignSelf: 'flex-start' }}
           resizeMode="contain"
         />
         <Text style={{fontFamily: 'MontserratBold', fontSize: normalize(40), color: "#F85D17", textAlign: 'center', marginTop: normalize(100)}}>SEJA BEM-VINDO AO QUIZ AMBIKIRA!</Text>

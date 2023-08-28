@@ -34,7 +34,7 @@ export default function ProgressBarComponent({ tempo }) {
   })
   return (
     <View style={styles.fundoProgressBar} >
-      <Text style={{color: "black", fontSize: normalize(32), fontWeight: 'bold'}} >{Math.floor(tempo / 60)}:{tempo % 60 < 10 ? "0" + (tempo % 60) : tempo % 60}</Text>
+      <Text style={{color: "black", fontSize: normalize(32), fontFamily: 'MontserratBold'}} >{Math.floor(tempo / 60)}:{tempo % 60 < 10 ? "0" + (tempo % 60) : tempo % 60}</Text>
       <Image
         source={clock}
         style={{ zIndex: -99, height: undefined, width: "12.5%", aspectRatio: 1.16, position: 'absolute', right: "2%"}}

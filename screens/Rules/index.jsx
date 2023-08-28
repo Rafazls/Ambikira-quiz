@@ -120,7 +120,7 @@ export default function Rules({navigation, route}) {
   }
   return (
     <View style={{ flex: 1, alignItems: "center", paddingVertical: normalize(48) }}>
-      <Image source={logo} style={{ width: "30%", aspectRatio: 2.35632, height: undefined, alignSelf: 'flex-end' }} resizeMode="contain"/>
+      <Image source={logo} style={{ width: normalize(205), aspectRatio: 2.35632, height: undefined, alignSelf: 'flex-end' }} resizeMode="contain"/>
       <CircleLeftTop />
       <CircleRightBottom />
       <Text
@@ -222,7 +222,7 @@ export default function Rules({navigation, route}) {
             paddingVertical: 12,
             paddingHorizontal: 40,
             borderRadius: 500,
-            borderColor: "#F85D17",
+            borderColor: "#000000",
             borderWidth: 2
           }}
         >

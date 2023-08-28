@@ -239,7 +239,7 @@ export default function Home({ navigation, route }) {
           />
           <SelectDropdown
             data={estandes}
-            buttonStyle={[styles.input, {alignItems:'flex-start', justifyContent:'flex-start'}]}
+            buttonStyle={[styles.input, {alignItems:'center', justifyContent:'flex-start'}]}
             buttonTextStyle={{fontSize:normalize(22), width:"5%",  textAlign:'left'}}
             defaultButtonText="Estande"
             renderDropdownIcon={
@@ -295,7 +295,7 @@ export default function Home({ navigation, route }) {
             onPress={() => {
               navigation.navigate("TermsAndConditions");
             }}
-          ><Text style={{ fontWeight: 'bold', fontFamily: 'MontserratMedium', fontSize: normalize(24) }}>Eu li e aceito os termos de uso e a política de privacidade referente ao uso de dados.</Text>
+          ><Text style={{ fontWeight: 'bold', fontFamily: 'MontserratMedium', fontSize: normalize(24) }}>Eu li e aceito os {<Text style={{color: "#F85D17"}}>termos de uso</Text>} e a política de privacidade referente ao uso de dados.</Text>
           </TouchableOpacity>
         </View>
 
@@ -310,16 +310,18 @@ export default function Home({ navigation, route }) {
             }}
             style={{
               flexDirection: 'row',
-              width: "30%",
-              height: "30%",
-              justifyContent: 'center',
+              width: "25%",
+              height: "35%",
+              justifyContent: 'space-around',
               alignItems: "center",
-              borderRadius: 15,
-              backgroundColor: "#F0B528",
+              borderRadius: 500,
+              backgroundColor: "#FFF",
+              paddingHorizontal: 12,
+              borderColor: "black",
+              borderWidth: 2
             }}
           >
-            <Image source={voltarImg} style={{ height: undefined, width: "15%", aspectRatio: 1, margin: '4%' }} resizeMode="contain" />
-            <Text style={{ fontFamily: "InriaSans700", fontSize: normalize(32) }}>Voltar</Text>
+            <Text style={{ fontFamily: "InriaSans700", fontSize: normalize(32) }}>VOLTAR</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -410,12 +412,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   button: {
-    width: "30%",
-    height: "30%",
+    width: "25%",
+    height: "35%",
     left: "18%",
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 15,
+    borderRadius: 500,
     backgroundColor: "#F85D17",
   },
   input: {
