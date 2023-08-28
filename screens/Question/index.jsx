@@ -13,35 +13,44 @@ import { useFonts } from "expo-font";
 import questions from "../../assets/questions/perguntas.json";
 import axios from "axios";
 import normalize from "../../assets/normalizeFont";
-import { LinearGradient } from "expo-linear-gradient";
 import ProgressBarComponent from "./components/ProgressBar";
 import Question from "./components/Question";
 import FinishAlert from "./components/FinishTimeModal";
 import ButtonQuestion from "./components/button";
-import backgroundImg from '../../assets/questions_assets/background.png'
-const URL_SERVER = process.env.BACKEND_URL
+import TimerTest from "./components/setInterval";
+const URL_SERVER = process.env.BACKEND_URL;
+
+Array.prototype.shuffle = function () {
+  for (var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+  return o;
+}
+
 
 function sortearQuestoes() {
   const questionsSelected = [];
-  const questionsSorted = [];
-  for (let i = 0; i < 6; i++) {
-    let randomNumberQuestion = Math.floor(Math.random() * questions.length);
-    while (questionsSorted.includes(randomNumberQuestion)) {
-      randomNumberQuestion = Math.floor(Math.random() * questions.length);
+  const questionsSorted = [[], [], []];
+  for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 2; i++) {
+      let randomNumberQuestion = Math.floor(Math.random() * questions[i].length);
+      while (questionsSorted[i].includes(randomNumberQuestion)) {
+        randomNumberQuestion = Math.floor(Math.random() * questions.length);
+      }
+      questionsSorted[i].push(randomNumberQuestion);
+      questionsSelected.push(questions[i][randomNumberQuestion]);
     }
-    questionsSorted.push(randomNumberQuestion);
-    questionsSelected.push(questions[randomNumberQuestion]);
   }
-  return questionsSelected;
+  const shuffledQuestions = questionsSelected.shuffle()
+  return shuffledQuestions;
 }
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
 export default function QuestionPage({ navigation, route }) {
-    const { cpf, email, name, tel, estande } = { //VARIAVEIS VINDA DA ROTA ANTERIOR (HOME)
+  const { cpf, email, name, tel, estande } = {
+    //VARIAVEIS VINDA DA ROTA ANTERIOR (HOME)
     cpf: route.params.getcpf,
     email: route.params.getemail,
     name: route.params.getname,
     tel: route.params.gettel,
-    estande: route.params.estande
+    estande: route.params.estande,
   };
   const [fontsLoaded] = useFonts({
     Imprima: require("../../assets/fonts/Imprima_400.ttf"),
@@ -66,49 +75,61 @@ export default function QuestionPage({ navigation, route }) {
   ]);
   const [questionsSelected, setQuestionsSelected] = useState([]); //Questões selecionadas aleatoriamente
   const [numberQuestion, setNumberQuestion] = useState(1); //Numero da questão atual do usuário
-  const [tempo, setTempo] = useState(120); //Tempo que falta para o usuário terminar as questões
-  const [interval, setIntervalo] = useState(null); //Variável para guardar o interval do ceap
+  const [tempo, setTempo] = useState(90); //Tempo que falta para o usuário terminar as questões
+  const [Timer, setTimer] = useState(null); //Variável para guardar o interval do ceap
   const positionQuestions = useRef(new Animated.Value(0)).current;
   const [questionDivWidth, setQuestionWidth] = useState(0);
-  const [touchStart, setTouchStart] = useState(null)
-  const [timeFinished, setTimeFinished] = useState(false)
+  const [touchStart, setTouchStart] = useState(null);
+  const [timeFinished, setTimeFinished] = useState(false);
+
   function startTimer(setTempo) {
     //Função que inicia o timer das questões
-    let segundos = 0;
-    const myInterval = setInterval(() => {
-      segundos++;
-      setTempo(120 - segundos);
-    }, 1000);
-    return myInterval;
+    let centesimoDeSegundo = 0;
+    const Timer = new TimerTest();
+    const myInterval = Timer.setInterval(() => {
+      centesimoDeSegundo++;
+      setTempo(90 - Math.floor(centesimoDeSegundo / 10));
+    }, 100);
+    return Timer;
   }
   function nextQuestion() {
-    if (respostas[numberQuestion - 1] === null){
-      Alert.alert("Confirmação", "Você tem certeza que deseja prosseguir com a questão em branco? Esteja ciente que não poderá retornar depois, portanto sua resposta ficará como nula.", [{ text: 'Cancelar', onPress: () => { console.log("Cancelled")}}, { text: "Sim, tenho certeza.", onPress: () => {
-        setNumberQuestion( numberQuestion + 1);
-        Animated.timing(positionQuestions, {
-          toValue: -(
-            questionDivWidth * numberQuestion +
-            24 * numberQuestion
-          ),
-          duration: 300,
-          useNativeDriver: true,
-        }).start();
-      }}])
-    }
-    else{
-
+    if (respostas[numberQuestion - 1] === null) {
+      Alert.alert(
+        "Confirmação",
+        "Você tem certeza que deseja prosseguir com a questão em branco? Esteja ciente que não poderá retornar depois, portanto sua resposta ficará como nula.",
+        [
+          {
+            text: "Cancelar",
+            onPress: () => {
+              console.log("Cancelled");
+            },
+          },
+          {
+            text: "Sim, tenho certeza.",
+            onPress: () => {
+              setNumberQuestion(numberQuestion + 1);
+              Animated.timing(positionQuestions, {
+                toValue: -(
+                  questionDivWidth * numberQuestion +
+                  24 * numberQuestion
+                ),
+                duration: 300,
+                useNativeDriver: true,
+              }).start();
+            },
+          },
+        ]
+      );
+    } else {
       setNumberQuestion(numberQuestion + 1);
       Animated.timing(positionQuestions, {
-        toValue: -(
-          questionDivWidth * numberQuestion +
-          24 * numberQuestion
-        ),
+        toValue: -(questionDivWidth * numberQuestion + 24 * numberQuestion),
         duration: 300,
         useNativeDriver: true,
       }).start();
     }
   }
-  async function endQuiz(interval) {
+  async function endQuiz() {
     //Função que encerra o quiz
     let points = 0;
     for (let index in questionsSelected) {
@@ -116,8 +137,8 @@ export default function QuestionPage({ navigation, route }) {
         points++;
       }
     }
-    clearInterval(interval);
-    setTimeFinished(false)
+    Timer.clearInterval();
+    setTimeFinished(false);
     try {
       const response = await axios.post(`${URL_SERVER}/users`, {
         name,
@@ -125,7 +146,7 @@ export default function QuestionPage({ navigation, route }) {
         cpf,
         tel,
         estande,
-        time: 120 - tempo,
+        time: 90 - tempo,
         pontos: points,
       });
       if (
@@ -133,26 +154,35 @@ export default function QuestionPage({ navigation, route }) {
         response.data === "Dados cadastrados com sucesso"
       ) {
         navigation.navigate("Finish", {
-          points, name
+          points,
+          name,
         });
       }
     } catch (error) {
-      Alert.alert("Error", "Ocorreu um erro no seu cadastro no banco de dados, verifique seus dados e jogue novamente: " + error.response.data + error.response, [
-        { text: 'Retornar ao menu principal', onPress: () => navigation.popToTop() },
-      ])
+      Alert.alert(
+        "Error",
+        "Ocorreu um erro no seu cadastro no banco de dados, verifique seus dados e jogue novamente: " +
+          error.response.data +
+          error.response,
+        [
+          {
+            text: "Retornar ao menu principal",
+            onPress: () => navigation.popToTop(),
+          },
+        ]
+      );
     }
-    
   }
 
   useEffect(() => {
     //Executado a primeira vez que o componente é renderizado
     setQuestionsSelected(sortearQuestoes());
-    setIntervalo(startTimer(setTempo));
+    setTimer(startTimer(setTempo));
   }, []);
   useEffect(() => {
     //Executa toda vez que a variável tempo é atualizada
     if (tempo <= 0) {
-      setTimeFinished(true)
+      setTimeFinished(true);
     }
   }, [tempo]);
 
@@ -162,7 +192,7 @@ export default function QuestionPage({ navigation, route }) {
   }
   return (
     <View style={styles.container}>
-      <FinishAlert visible={timeFinished} endQuiz={endQuiz}/>
+      <FinishAlert visible={timeFinished} endQuiz={endQuiz} />
       <ProgressBarComponent tempo={tempo} />
       <Animated.View
         style={{
@@ -174,12 +204,12 @@ export default function QuestionPage({ navigation, route }) {
           height: "75%",
           transform: [{ translateX: positionQuestions }],
         }}
-        onTouchStart={( e ) => {
-          setTouchStart(e.nativeEvent.locationX)
+        onTouchStart={(e) => {
+          setTouchStart(e.nativeEvent.locationX);
         }}
         onTouchEnd={(e) => {
           if (touchStart - e.nativeEvent.locationX > 50) {
-            nextQuestion()
+            nextQuestion();
           }
         }}
       >
@@ -197,8 +227,16 @@ export default function QuestionPage({ navigation, route }) {
           );
         })}
       </Animated.View>
-      {numberQuestion >= questionsSelected.length ? (<ButtonQuestion onPress={endQuiz} text={"FINALIZAR"}/>) : (<ButtonQuestion onPress={nextQuestion} text={"PRÓXIMA"} />)
-      }
+      {numberQuestion >= questionsSelected.length ? (
+        <ButtonQuestion
+          onPress={() => {
+            endQuiz();
+          }}
+          text={"FINALIZAR"}
+        />
+      ) : (
+        <ButtonQuestion onPress={nextQuestion} text={"PRÓXIMA"} />
+      )}
     </View>
   );
 }

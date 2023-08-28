@@ -24,7 +24,7 @@ export default function ProgressBarComponent({ tempo }) {
   useEffect(() => {
     Animated.timing(progressAnim, {
         toValue: 100,
-        duration: 120000,
+        duration: 90000,
         useNativeDriver: false
     }).start()
   }, []);

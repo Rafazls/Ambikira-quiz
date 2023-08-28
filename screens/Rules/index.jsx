@@ -106,7 +106,6 @@ export default function Rules({navigation, route}) {
   const [check3, setCheck3] = useState(false);
   const [check4, setCheck4] = useState(false);
   const [check5, setCheck5] = useState(false);
-  const [check6, setCheck6] = useState(false);
   const [fontsLoaded] = useFonts({
     Imprima: require("../../assets/fonts/Imprima_400.ttf"),
     PassionOne700: require("../../assets/fonts/Passion_One_Bold_700.ttf"),
@@ -195,20 +194,7 @@ export default function Rules({navigation, route}) {
             style={{ alignSelf: "flex-start" }}
           />
           <Text style={styles.fontCheckBox}>
-            Em caso de empate na pontuação, o critério de desempate será o menor
-            tempo de resposta do quiz.
-          </Text>
-        </View>
-        <View style={styles.checkBoxView}>
-          <BouncyCheckbox
-            fillColor="#F85D17"
-            innerIconStyle={{ borderRadius: 4, borderWidth: 2 }}
-            iconStyle={{ borderRadius: 4 }}
-            style={{ alignSelf: "flex-start" }}
-            onPress={(checked) => setCheck6(checked)}
-          />
-          <Text style={styles.fontCheckBox}>
-            O Quiz terá um critério de desempate baseado no tempo ocorrido.
+            Será considerado critério de desempate o tempo de execução do quiz.
           </Text>
         </View>
       </View>
@@ -238,7 +224,7 @@ export default function Rules({navigation, route}) {
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
-            if (check1 && check2 && check3 && check4 && check5 && check6) {
+            if (check1 && check2 && check3 && check4 && check5) {
               navigation.navigate("Home"); //Vai para a tela de home
             } else {
               Alert.alert(

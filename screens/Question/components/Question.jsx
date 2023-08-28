@@ -43,6 +43,7 @@ export default function Question({
             question={questaoAtual.alternativas["A"]}
             alternative={"A"}
             onSelected={() => {
+              console.log('PRESSED')
               setSelected("A");
               updateQuestion("A");
             }}
@@ -52,6 +53,7 @@ export default function Question({
             alternative={"B"}
             question={questaoAtual.alternativas["B"]}
             onSelected={() => {
+              console.log('PRESSED')
               setSelected("B");
               updateQuestion("B");
             }}
@@ -61,6 +63,7 @@ export default function Question({
             alternative={"C"}
             question={questaoAtual.alternativas["C"]}
             onSelected={() => {
+              console.log('PRESSED')
               setSelected("C");
               updateQuestion("C");
             }}
@@ -70,6 +73,7 @@ export default function Question({
             alternative={"D"}
             question={questaoAtual.alternativas["D"]}
             onSelected={() => {
+              console.log('PRESSED')
               setSelected("D");
               updateQuestion("D");
             }}

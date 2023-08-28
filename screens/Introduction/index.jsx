@@ -84,12 +84,12 @@ export default function Introduction({ navigation, route }) {
         <Text style={{fontFamily: 'MontserratMedium', fontSize: normalize(28), color: 'black', marginTop: "12%"}}>
           Nesse jogo você testará seu conhecimento sobre o panorama social
           brasileiro, passando por desafios que são foco de atuação do Instituto
-          Ambikira. Quem fizer a maior pontuação vence! {"\n\n"}Durante a Expert XP,
+          Ambikira. Quem fizer a maior pontuação, vence! {"\n\n"}Durante a Expert XP,
           você poderá responder ao quiz no estande das Assets apoiadoras do
           Ambikira. O participante com a melhor colocação em cada estande
           ganhará um encontro individual de 15 minutos, presencial ou remoto,
-          com o gestor da respectiva , em data a ser combinada.{"\n\n"}O resultado
-          final será comunicado por e-mail, no endereço cadastrado.{"\n\n"}Teste seus
+          com o gestor da respectiva asset , em data a ser combinada.{"\n\n"}Os vencedores serão comunicados 
+          por e-mail, no endereço cadastrado.{"\n\n"}Teste seus
           conhecimentos, e boa sorte!
         </Text>
         <TouchableOpacity

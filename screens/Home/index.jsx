@@ -36,7 +36,7 @@ function verifyEmail(email) {
 }
 
 export default function Home({ navigation, route }) {
-  const estandes = ["RBR", "Jive", "RPS", "Vinland", "SPX", "Neo", "Truxt", "JGP", "CS", "Absolute", "Legacy", "Ibiuna", "Dahila", "Genoa", "Verde"]
+  const estandes = ["Absolute - Fabiano Rios", "Credit Suisse - Augusto Martins", "Dahlia - Felipe Hirai", "Genoa - Rodrigo Noel", "Ibiuna - Rodrigo Azevedo", "JGP - André Jakurski", "Jive - Alexandre Cruz", "Legacy", "Neo - Marcelo Cabral", "RBR - Ricardo Almendra", "RPS - Paolo Di Sora", "SPX - Rogério Xavier", "Truxt - Bruno Garcia", "Verde - Luis Stuhlberger", "Vinland - André Laport"]
   const [getname, name] = useState("");
   const [getemail, email] = useState("");
   const [getcpf, cpf] = useState("");
@@ -45,6 +45,7 @@ export default function Home({ navigation, route }) {
   const [parsedCPF, setParsedCPF] = useState("");
   const [loading, setLoading] = useState(false)
   const [check1, setCheck1] = useState(false);
+  const [check2, setCheck2] = useState(false);
   const [estande, setEstande] = useState("")
   const InvalidCPFAlert = () =>
     Alert.alert("CPF Inválido!", "Digite novamente!", [
@@ -157,7 +158,7 @@ export default function Home({ navigation, route }) {
           <TextInput
             style={styles.input}
             label="Nome"
-            placeholder="Nome"
+            placeholder="Nome e sobrenome"
             placeholderTextColor={'#000'}
             value={getname}
             onChangeText={name}
@@ -216,7 +217,7 @@ export default function Home({ navigation, route }) {
           <TextInput
             label="Telefone"
             style={styles.input}
-            placeholder="Telefone"
+            placeholder="Telefone com DDD"
             placeholderTextColor={'#000'}
             value={parsedTel}
             onChangeText={(e) => {
@@ -240,7 +241,7 @@ export default function Home({ navigation, route }) {
           <SelectDropdown
             data={estandes}
             buttonStyle={[styles.input, {alignItems:'center', justifyContent:'flex-start'}]}
-            buttonTextStyle={{fontSize:normalize(22), width:"5%",  textAlign:'left'}}
+            buttonTextStyle={{fontSize:normalize(26), width:"5%",  textAlign:'left'}}
             defaultButtonText="Estande"
             renderDropdownIcon={
               () => {
@@ -298,7 +299,24 @@ export default function Home({ navigation, route }) {
           ><Text style={{ fontWeight: 'bold', fontFamily: 'MontserratMedium', fontSize: normalize(24) }}>Eu li e aceito os {<Text style={{color: "#F85D17"}}>termos de uso</Text>} e a política de privacidade referente ao uso de dados.</Text>
           </TouchableOpacity>
         </View>
+        <View style={styles.checkBoxView}>
+          <BouncyCheckbox
+            fillColor="#F85D17"
+            innerIconStyle={{ borderRadius: 4, borderWidth: 2 }}
+            iconStyle={{ borderRadius: 4 }}
+            style={{ alignSelf: "flex-start" }}
+            onPress={(checked) => setCheck2(checked)}
+          />
 
+
+
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("LGPD");
+            }}
+          ><Text style={{ fontWeight: 'bold', fontFamily: 'MontserratMedium', fontSize: normalize(24) }}>Eu li e aceito os termo com relação à LGPD (Lei Geral de Proteção de dados) {<Text style={{color: "#F85D17"}}>Acessar LGPD</Text>}, nele está contido a finalidade do seus dados.</Text>
+          </TouchableOpacity>
+        </View>
 
 
         <View style={{
@@ -328,7 +346,7 @@ export default function Home({ navigation, route }) {
             style={styles.button}
             onPress={() => {
 
-              if (!check1) {
+              if (!check1 && !check2) {
                 Alert.alert(
                   "Aviso",
                   "Você precisa aceitar os termos de Uso para jogar!"
@@ -446,7 +464,6 @@ const styles = StyleSheet.create({
   checkBoxView: {
     flexDirection: "row",
     marginTop: 15,
-    marginVertical: '4%',
     width: "65%"
   }
 });

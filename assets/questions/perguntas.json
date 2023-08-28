@@ -1,303 +1,298 @@
 [
-    {
-        "pergunta": "Quais são as principais dificuldades enfrentadas por estudantes de baixa renda em relação à educação?",
-        "alternativas": {
-            "A": "Acesso limitado a recursos educacionais",
-            "B": "Falta de interesse nos estudos",
-            "C": "Incompatibilidade de horários com o trabalho",
-            "D": "Baixa qualidade do ensino público"
+    [
+        {
+          "pergunta": "Qual é a porcentagem de estudantes de escolas públicas que concluem o Ensino Médio com aprendizado adequado em matemática?",
+          "alternativas": {
+            "A": "5%",
+            "B": "22%",
+            "C": "35%",
+            "D": "60%"
+          },
+          "alternativaCorreta": "A"
         },
-        "alternativaCorreta": "A"
-    },
-    {
-        "pergunta": "Qual é o conceito de 'analfabetismo funcional' na educação?",
-        "alternativas": {
-            "A": "Incapacidade de ler e escrever",
-            "B": "Habilidade limitada de aplicar conhecimentos em situações reais",
-            "C": "Falta de escolaridade formal",
-            "D": "Ausência de domínio em alguma disciplina específica"
+        {
+          "pergunta": "Qual percentual da população brasileira vive atualmente sem acesso à coleta de esgoto?",
+          "alternativas": {
+            "A": "30,8%",
+            "B": "35,1%",
+            "C": "44,2%",
+            "D": "51,9%"
+          },
+          "alternativaCorreta": "C"
         },
-        "alternativaCorreta": "B"
-    },
-    {
-        "pergunta": "Quais são os órgãos responsáveis pelo financiamento da educação pública no Brasil?",
-        "alternativas": {
-            "A": "Ministério da Educação (MEC)",
-            "B": "Conselho Nacional de Educação (CNE)",
-            "C": "Fundo Nacional de Desenvolvimento da Educação (FNDE)",
-            "D": "Congresso Nacional"
+        {
+          "pergunta": "Em qual região do Brasil a pobreza extrema prevalece mais?",
+          "alternativas": {
+            "A": "Norte",
+            "B": "Sudeste",
+            "C": "Centro-Oeste",
+            "D": "Nordeste"
+          },
+          "alternativaCorreta": "D"
         },
-        "alternativaCorreta": "C"
-    },
-    {
-        "pergunta": "Quais são as principais teorias de aprendizagem que influenciam a prática educacional?",
-        "alternativas": {
-            "A": "Behaviorismo, Cognitivismo, Construtivismo e Humanismo",
-            "B": "Estruturalismo, Funcionalismo, Behaviorismo e Gestalt",
-            "C": "Humanismo, Behaviorismo, Ecletismo e Psicanálise",
-            "D": "Construtivismo, Cognitivismo, Behaviorismo e Ecletismo"
+        {
+          "pergunta": "Qual é o Índice de Desenvolvimento Humano (IDH) do Brasil em 2022?",
+          "alternativas": {
+            "A": "0,645",
+            "B": "0,672",
+            "C": "0,754",
+            "D": "0,820"
+          },
+          "alternativaCorreta": "C"
         },
-        "alternativaCorreta": "A"
-    },
-    {
-        "pergunta": "O que é a Base Nacional Comum Curricular (BNCC) no contexto da educação brasileira?",
-        "alternativas": {
-            "A": "Um documento que estabelece o currículo único para todas as etapas e modalidades da Educação Básica",
-            "B": "Um órgão responsável pela regulamentação do ensino superior no Brasil",
-            "C": "Um programa de intercâmbio educacional entre escolas públicas e privadas",
-            "D": "Um projeto de pesquisa sobre a qualidade do ensino nas escolas"
+        {
+          "pergunta": "Qual é a taxa de escolarização (estudantes matriculados sobre o total da população na respectiva faixa etária) da população brasileira entre 6 e 14 anos?",
+          "alternativas": {
+            "A": "76,2%",
+            "B": "80,5%",
+            "C": "92,1%",
+            "D": "99,4%"
+          },
+          "alternativaCorreta": "D"
         },
-        "alternativaCorreta": "A"
-    },
-    {
-        "pergunta": "Como a tecnologia pode ser aplicada para melhorar o processo educacional?",
-        "alternativas": {
-            "A": "Facilitando a automatização de todas as atividades escolares",
-            "B": "Permitindo a substituição completa de professores por programas de computador",
-            "C": "Facilitando o acesso a recursos educacionais e estimulando a interatividade no aprendizado",
-            "D": "Limitando o acesso à informação para evitar distrações durante as aulas"
+        {
+          "pergunta": "Qual foi a proporção de domicílios brasileiros com acesso à internet em 2021?",
+          "alternativas": {
+            "A": "40%",
+            "B": "70%",
+            "C": "80%",
+            "D": "90%"
+          },
+          "alternativaCorreta": "D"
         },
-        "alternativaCorreta": "C"
-    },
-    {
-        "pergunta": "Quais são os principais desafios enfrentados pelos professores na atualidade?",
-        "alternativas": {
-            "A": "Salários baixos e falta de reconhecimento profissional",
-            "B": "Falta de qualificação e desinteresse dos alunos",
-            "C": "Dificuldades em lidar com a tecnologia na sala de aula",
-            "D": "Poucas oportunidades de capacitação e atualização profissional"
+        {
+          "pergunta": "Qual foi a taxa de desemprego entre os jovens brasileiros de 18 a 24 anos no primeiro trimestre de 2023?",
+          "alternativas": {
+            "A": "15%",
+            "B": "18%",
+            "C": "35%",
+            "D": "45%"
+          },
+          "alternativaCorreta": "B"
         },
-        "alternativaCorreta": "A"
-    },
-    {
-        "pergunta": "Qual é a relação entre a educação inclusiva e a valorização da diversidade nas escolas?",
-        "alternativas": {
-            "A": "A educação inclusiva busca oferecer oportunidades iguais para todos, independentemente das diferenças",
-            "B": "A valorização da diversidade é um conceito ultrapassado e não tem relação com a educação inclusiva",
-            "C": "A educação inclusiva é exclusiva para pessoas com necessidades especiais",
-            "D": "A valorização da diversidade é um obstáculo para a eficiência do ensino nas escolas"
+        {
+          "pergunta": "Qual é o principal motivo para os brasileiros entre 14 e 29 anos abandonarem a escola?",
+          "alternativas": {
+            "A": "Gravidez",
+            "B": "Falta de interesse em estudar",
+            "C": "Necessidade de trabalhar",
+            "D": "Ausência de escola na localidade"
+          },
+          "alternativaCorreta": "C"
         },
-        "alternativaCorreta": "A"
-    },
-    {
-        "pergunta": "O que é a 'pedagogia libertadora' e quem é seu principal proponente?",
-        "alternativas": {
-            "A": "Uma abordagem de ensino centrada no aluno, proposta por Jean Piaget",
-            "B": "Um modelo de educação tradicional, defendido por Lev Vygotsky",
-            "C": "Uma proposta de ensino crítico e emancipador, desenvolvida por Paulo Freire",
-            "D": "Uma teoria da aprendizagem social, criada por Albert Bandura"
+        {
+          "pergunta": "Qual é a atual diferença salarial média entre homens e mulheres no Brasil?",
+          "alternativas": {
+            "A": "17%",
+            "B": "22%",
+            "C": "30%",
+            "D": "42%"
+          },
+          "alternativaCorreta": "B"
         },
-        "alternativaCorreta": "C"
-    },
-    {
-        "pergunta": "Quais são os principais indicadores de qualidade da educação utilizados internacionalmente?",
-        "alternativas": {
-            "A": "Investimento por aluno, quantidade de professores e infraestrutura escolar",
-            "B": "Taxa de alfabetização, desempenho em exames padronizados e taxa de abandono escolar",
-            "C": "Média de idade dos alunos, participação em atividades extracurriculares e taxa de retenção escolar",
-            "D": "Grau de satisfação dos alunos, currículo escolar e avaliação de pais e responsáveis"
+        {
+          "pergunta": "Qual é a taxa atual de desemprego do Brasil (entre abril e junho de 2023)?",
+          "alternativas": {
+            "A": "5%",
+            "B": "8%",
+            "C": "12%",
+            "D": "17%"
+          },
+          "alternativaCorreta": "B"
+        }
+      ],
+      [
+        {
+          "pergunta": "Atualmente, qual é o percentual de brasileiros considerados analfabetos?",
+          "alternativas": {
+            "A": "2,8%",
+            "B": "5,6%",
+            "C": "12,3%",
+            "D": "20,4%"
+          },
+          "alternativaCorreta": "B"
         },
-        "alternativaCorreta": "B"
-    },
-    {
-        "pergunta": "Quais são os principais desafios enfrentados na implementação de políticas de educação a distância?",
-        "alternativas": {
-            "A": "Falta de recursos tecnológicos, baixa interação entre alunos e dificuldades na avaliação de aprendizado",
-            "B": "Acesso limitado à internet, desinteresse dos professores e baixa flexibilidade de horários",
-            "C": "Resistência dos estudantes à modalidade online, problemas de segurança e custos elevados",
-            "D": "Ausência de capacitação de professores, dificuldade na estruturação dos cursos e falta de material didático apropriado"
+        {
+          "pergunta": "O Índice de Desenvolvimento da Educação Básica (Ideb) é calculado com base em quais componentes?",
+          "alternativas": {
+            "A": "Taxa de analfabetismo e taxa de abandono escolar.",
+            "B": "Taxa de aprovação e média de desempenho escolar nos exames do Inep (Instituto Nacional de Estudos e Pesquisas Educacionais).",
+            "C": "Taxa de permanência de crianças e jovens nas escolas e aprendizado em matemática.",
+            "D": "Proporção de alunos com distorção idade-série e taxa de analfabetismo funcional."
+          },
+          "alternativaCorreta": "B"
         },
-        "alternativaCorreta": "A"
-    },
-    {
-        "pergunta": "O que é a 'pedagogia do afeto' e como ela se aplica na prática educacional?",
-        "alternativas": {
-            "A": "É uma abordagem que prioriza o desenvolvimento das habilidades afetivas dos alunos e sua relação com os outros.",
-            "B": "É uma teoria que enfatiza a importância do ambiente físico das escolas para o bem-estar dos estudantes.",
-            "C": "É um método que incentiva a expressão emocional dos alunos, mas não possui aplicação prática nas escolas.",
-            "D": "É uma estratégia que proíbe qualquer tipo de punição nas escolas, visando preservar o afeto entre alunos e professores."
+        {
+          "pergunta": "Qual é o estado brasileiro com o maior índice de pobreza por habitante?",
+          "alternativas": {
+            "A": "Espírito Santo",
+            "B": "Maranhão",
+            "C": "Amazonas",
+            "D": "Piauí"
+          },
+          "alternativaCorreta": "B"
         },
-        "alternativaCorreta": "A"
-    },
-    {
-        "pergunta": "Quais são os principais impactos da desigualdade social na educação?",
-        "alternativas": {
-            "A": "Redução do investimento em educação, aumento da evasão escolar e falta de acesso a recursos educacionais",
-            "B": "Maior interesse dos alunos nos estudos, melhores oportunidades de aprendizado e diminuição do analfabetismo",
-            "C": "Aumento da participação dos pais na educação, maior investimento em tecnologia e melhoria na infraestrutura escolar",
-            "D": "Estímulo à competitividade entre alunos, melhoria na qualidade do ensino e maior motivação dos professores"
+        {
+          "pergunta": "Qual percentual dos estudantes do 9º ano do Ensino Fundamental de escolas públicas possuem aprendizado adequado em português?",
+          "alternativas": {
+            "A": "25%",
+            "B": "35%",
+            "C": "50%",
+            "D": "70%"
+          },
+          "alternativaCorreta": "B"
         },
-        "alternativaCorreta": "A"
-    },
-    {
-        "pergunta": "Qual é o papel dos pais no processo educacional de seus filhos?",
-        "alternativas": {
-            "A": "Deixar inteiramente nas mãos da escola a responsabilidade pela educação dos filhos",
-            "B": "Auxiliar na realização das tarefas escolares e acompanhar o desempenho dos filhos",
-            "C": "Influenciar o currículo escolar e controlar as atividades dos professores em sala de aula",
-            "D": "Evitar qualquer interferência na vida escolar dos filhos para estimular a independência"
+        {
+          "pergunta": "Qual é a expectativa de vida média no Brasil?",
+          "alternativas": {
+            "A": "65 anos",
+            "B": "76 anos",
+            "C": "77 anos",
+            "D": "80 anos"
+          },
+          "alternativaCorreta": "C"
         },
-        "alternativaCorreta": "B"
-    },
-    {
-        "pergunta": "Quais são os principais desafios enfrentados pelos estudantes com deficiência na inclusão escolar?",
-        "alternativas": {
-            "A": "Falta de infraestrutura adequada nas escolas, preconceito e pouca qualificação dos professores",
-            "B": "Pouco interesse dos próprios alunos, falta de adaptação curricular e desinteresse dos colegas de classe",
-            "C": "Dificuldade em acompanhar o ritmo da turma, falta de acessibilidade e dificuldade de comunicação",
-            "D": "Despreparo das famílias, falta de recursos tecnológicos e baixo investimento do governo"
+        {
+          "pergunta": "Em média, de cada dez mulheres em idade para trabalhar, quantas estão ativas no mercado de trabalho (empregadas ou buscando um emprego)?",
+          "alternativas": {
+            "A": "3",
+            "B": "4",
+            "C": "5",
+            "D": "7"
+          },
+          "alternativaCorreta": "C"
         },
-        "alternativaCorreta": "C"
-    },
-    {
-        "pergunta": "O que é a 'educação intercultural' e como ela pode contribuir para a formação de cidadãos globais?",
-        "alternativas": {
-            "A": "É um modelo de ensino que valoriza apenas a cultura dominante do país, não considerando a diversidade cultural.",
-            "B": "É uma abordagem que busca promover a convivência entre culturas diferentes, enriquecendo o aprendizado dos estudantes.",
-            "C": "É um sistema educacional exclusivo para estudantes estrangeiros, que não se aplica a cidadãos locais.",
-            "D": "É uma proposta de ensino que não se preocupa com a diversidade cultural, focando apenas no currículo tradicional."
+        {
+          "pergunta": "Qual foi a representatividade de pretos e pardos entre os cargos gerenciais no Brasil, em 2021?",
+          "alternativas": {
+            "A": "15.3%",
+            "B": "22,7%",
+            "C": "29,5%",
+            "D": "33.1%"
+          },
+          "alternativaCorreta": "C"
         },
-        "alternativaCorreta": "B"
-    },
-    {
-        "pergunta": "Quais são os principais fatores que influenciam o abandono escolar?",
-        "alternativas": {
-            "A": "Baixa qualidade do ensino, falta de interesse dos alunos e problemas familiares",
-            "B": "Conflitos entre colegas, falta de apoio emocional e dificuldades financeiras",
-            "C": "Ausência de transporte escolar, falta de infraestrutura adequada e desmotivação dos professores",
-            "D": "Dificuldades de aprendizagem, excesso de tarefas e falta de atividades extracurriculares"
+        {
+          "pergunta": "Segundo o Censo Escolar de 2022, qual foi o estado brasileiro com a maior proporção de alunos do ensino médio em escolas de educação integral?",
+          "alternativas": {
+            "A": "Pernambuco",
+            "B": "São Paulo",
+            "C": "Paraná",
+            "D": "Ceará"
+          },
+          "alternativaCorreta": "A"
         },
-        "alternativaCorreta": "A"
-    },
-    {
-        "pergunta": "O que é a 'pedagogia do oprimido' de Paulo Freire e como ela se relaciona com a educação crítica?",
-        "alternativas": {
-            "A": "É uma teoria que propõe a opressão dos alunos como forma de estimular o aprendizado.",
-            "B": "É uma abordagem que busca a alienação dos estudantes para evitar conflitos na sala de aula.",
-            "C": "É uma proposta que valoriza a reflexão e a consciência crítica dos alunos sobre sua realidade social.",
-            "D": "É um modelo educacional que prioriza o controle total do professor sobre os alunos."
+        {
+          "pergunta": "Qual percentual da população brasileira adulta possui o ensino médio completo?",
+          "alternativas": {
+            "A": "35,2%",
+            "B": "44,6%",
+            "C": "53,1%",
+            "D": "60,5%"
+          },
+          "alternativaCorreta": "C"
         },
-        "alternativaCorreta": "C"
-    },
-    {
-        "pergunta": "Quais são os desafios enfrentados pelos países em desenvolvimento na busca por melhorias na educação?",
-        "alternativas": {
-            "A": "Dificuldade em atrair professores qualificados, falta de recursos financeiros e infraestrutura precária",
-            "B": "Desinteresse dos alunos, falta de investimento em tecnologia e falta de parcerias internacionais",
-            "C": "Problemas de saúde pública, falta de material didático e ausência de avaliação educacional",
-            "D": "Falta de apoio dos pais, burocracia governamental e excesso de conteúdos curriculares"
+        {
+          "pergunta": "Em 2020, qual foi o percentual de alunos pretos, pardos e indígenas nas universidades federais brasileiras?",
+          "alternativas": {
+            "A": "42%",
+            "B": "45%",
+            "C": "49%",
+            "D": "52%"
+          },
+          "alternativaCorreta": "D"
+        }
+      ],
+      [
+        {
+          "pergunta": "Qual foi o índice de Gini do Brasil em 2022? O índice de Gini é um indicador que reflete a desigualdade socioeconômica de países e territórios mensurando a distribuição de renda entre as populações. Os valores do coeficiente de Gini variam entre 0 e 1, e, quanto mais próximo de 1, maior é a desigualdade na distribuição de renda entre a população.",
+          "alternativas": {
+            "A": "0,354",
+            "B": "0,450",
+            "C": "0,518",
+            "D": "0,615"
+          },
+          "alternativaCorreta": "C"
         },
-        "alternativaCorreta": "A"
-    },
-    {
-        "pergunta": "O que é a 'pedagogia tradicional' e como ela se difere das abordagens contemporâneas de ensino?",
-        "alternativas": {
-            "A": "É um modelo de ensino centrado no aluno, que prioriza a construção do conhecimento de forma colaborativa.",
-            "B": "É um método que enfatiza a memorização e a repetição de conteúdos, com pouca interação entre professor e aluno.",
-            "C": "É uma abordagem que busca o ensino especializado em disciplinas específicas, ignorando a interdisciplinaridade.",
-            "D": "É uma proposta de ensino focada na utilização de recursos tecnológicos, desprezando a importância do professor."
+        {
+          "pergunta": "Atualmente, qual é a porcentagem da população brasileira que vive abaixo da linha da pobreza?",
+          "alternativas": {
+            "A": "10,7%",
+            "B": "15,2%",
+            "C": "22,5%",
+            "D": "29,4%"
+          },
+          "alternativaCorreta": "D"
         },
-        "alternativaCorreta": "B"
-    },
-    {
-        "pergunta": "Quais são as estratégias eficazes para promover a participação ativa dos pais na educação dos filhos?",
-        "alternativas": {
-            "A": "Oferecer cursos de capacitação para pais, envolvê-los em decisões escolares e criar espaços de diálogo com a escola.",
-            "B": "Contratar pais como professores, permitir a intervenção dos pais nas aulas e permitir que determinem o currículo escolar.",
-            "C": "Fornecer incentivos financeiros para a participação dos pais, limitar sua interferência nas atividades escolares e aumentar o tempo de férias escolares.",
-            "D": "Promover reuniões apenas com pais de alunos com bom desempenho acadêmico, para evitar conflitos com os demais."
+        {
+          "pergunta": "Qual foi a taxa de mortalidade infantil para crianças menores de 5 anos de idade no Brasil, em 2021?",
+          "alternativas": {
+            "A": "14 por 1.000 nascidos vivos",
+            "B": "40 por 1.000 nascidos vivos",
+            "C": "98 por 1.000 nascidos vivos",
+            "D": "25 por 1.000 nascidos vivos"
+          },
+          "alternativaCorreta": "A"
         },
-        "alternativaCorreta": "A"
-    },
-    {
-        "pergunta": "Quais são as principais mudanças necessárias para uma educação mais inclusiva e acessível a todos?",
-        "alternativas": {
-            "A": "Investimento em tecnologia avançada, aumento da carga horária escolar e seleção mais rigorosa de alunos.",
-            "B": "Adoção de políticas de cotas para estudantes de baixa renda, criação de currículos personalizados e capacitação de professores.",
-            "C": "Contratação de professores especializados em educação inclusiva, exclusão de disciplinas consideradas 'desnecessárias' e maior fiscalização nas escolas.",
-            "D": "Oferta de bolsas de estudo para estudantes com altas habilidades, fechamento de escolas menos eficientes e adoção de exames de seleção para ingresso nas escolas."
+        {
+          "pergunta": "Qual é o estado brasileiro com o maior índice de desigualdade, de acordo com o índice de Gini?",
+          "alternativas": {
+            "A": "Sergipe",
+            "B": "Paraíba",
+            "C": "Rio de Janeiro",
+            "D": "Rondônia"
+          },
+          "alternativaCorreta": "B"
         },
-        "alternativaCorreta": "B"
-    },
-    {
-        "pergunta": "Quais são os principais desafios enfrentados pelos sistemas de ensino na transição para o ensino remoto durante a pandemia?",
-        "alternativas": {
-            "A": "Adaptação rápida de professores ao ambiente virtual, acesso limitado à internet e falta de infraestrutura tecnológica nas escolas.",
-            "B": "Aumento do número de alunos matriculados, falta de recursos para aquisição de dispositivos eletrônicos e excesso de aulas online.",
-            "C": "Desinteresse dos alunos em participar das aulas virtuais, dificuldades na avaliação de aprendizado e resistência dos professores ao novo formato.",
-            "D": "Uso inadequado de redes sociais para fins educacionais, divulgação inadequada de informações e falta de regulamentação governamental."
+        {
+          "pergunta": "Atualmente, qual é a representatividade das mulheres nos cargos de liderança no Brasil?",
+          "alternativas": {
+            "A": "15%",
+            "B": "27%",
+            "C": "38%",
+            "D": "50%"
+          },
+          "alternativaCorreta": "C"
         },
-        "alternativaCorreta": "A"
-    },
-    {
-        "pergunta": "Como a falta de investimento em educação pode impactar o desenvolvimento de um país a longo prazo?",
-        "alternativas": {
-            "A": "Pode resultar em um déficit fiscal, diminuição da qualidade de vida da população e aumento da desigualdade social.",
-            "B": "Provoca um aumento do PIB, maior taxa de exportações e melhoria na infraestrutura das cidades.",
-            "C": "Não tem impacto significativo no desenvolvimento do país, desde que a economia esteja estável.",
-            "D": "Pode levar a uma melhoria na eficiência dos gastos públicos, beneficiando outros setores do governo."
+        {
+          "pergunta": "Em 2023, qual foi a colocação do Brasil na Olimpíada de Matemática Internacional, entre os 112 países participantes da competição?",
+          "alternativas": {
+            "A": "7ª posição",
+            "B": "16ª posição",
+            "C": "38ª posição",
+            "D": "75ª posição"
+          },
+          "alternativaCorreta": "B"
         },
-        "alternativaCorreta": "A"
-    },
-    {
-        "pergunta": "Quais são as principais estratégias para incentivar a formação continuada de professores?",
-        "alternativas": {
-            "A": "Aumento do salário dos docentes, maior rigidez na contratação e oferecimento de bônus por desempenho.",
-            "B": "Criação de programas de capacitação obrigatórios, reconhecimento profissional e investimento em recursos tecnológicos.",
-            "C": "Redução das exigências para a formação de professores, aumento da carga horária de trabalho e fornecimento de benefícios.",
-            "D": "Contratação de professores mais jovens, substituindo os mais antigos e desmotivados."
+        {
+          "pergunta": "Quantas vezes o Brasil já foi campeão da Olimpíada Internacional de Economia?",
+          "alternativas": {
+            "A": "1",
+            "B": "3",
+            "C": "4",
+            "D": "6"
+          },
+          "alternativaCorreta": "C"
         },
-        "alternativaCorreta": "B"
-    },
-    {
-        "pergunta": "Quais são os principais desafios enfrentados por estudantes com altas habilidades na escola regular?",
-        "alternativas": {
-            "A": "Falta de interesse em atividades curriculares comuns, dificuldades de relacionamento com os colegas e desmotivação dos professores.",
-            "B": "Desinteresse dos próprios alunos em desenvolver suas habilidades, falta de recursos para atender suas necessidades específicas e falta de reconhecimento por parte da escola.",
-            "C": "Excesso de tarefas e atividades extras, dificuldade de adaptação ao ritmo da turma e falta de estímulo ao seu potencial.",
-            "D": "Dificuldade em lidar com atividades cotidianas, falta de apoio da família e baixa autoestima."
+        {
+          "pergunta": "Qual foi a capital brasileira com o melhor desempenho no último Índice de Desenvolvimento da Educação Básica (IDEB) para as turmas do 5º e 9º ano da rede pública?",
+          "alternativas": {
+            "A": "Belo Horizonte (MG)",
+            "B": "Curitiba (PR)",
+            "C": "Fortaleza (CE)",
+            "D": "Teresina (PI)"
+          },
+          "alternativaCorreta": "D"
         },
-        "alternativaCorreta": "C"
-    },
-    {
-        "pergunta": "Quais são os impactos do bullying na aprendizagem dos estudantes e como a escola pode lidar com essa questão?",
-        "alternativas": {
-            "A": "O bullying pode levar à queda no rendimento acadêmico, evasão escolar e problemas de saúde mental. A escola deve implementar programas de prevenção e punição para os agressores.",
-            "B": "O bullying não tem impacto significativo na aprendizagem dos alunos e deve ser considerado como algo comum na vida escolar. A escola não deve interferir nesse tipo de conflito.",
-            "C": "O bullying pode incentivar a competição saudável entre os estudantes, melhorando a qualidade do aprendizado. A escola deve evitar interferir nas relações entre os alunos.",
-            "D": "O bullying pode afetar a autoestima e a motivação dos estudantes, mas a escola não deve se envolver, pois esse é um problema pessoal e não educacional."
-        },
-        "alternativaCorreta": "A"
-    },
-    {
-        "pergunta": "Como a educação pode contribuir para a preservação do meio ambiente e o desenvolvimento sustentável?",
-        "alternativas": {
-            "A": "Incentivando a produção em larga escala, aumentando o consumo de recursos naturais e adotando práticas pouco sustentáveis.",
-            "B": "Desenvolvendo currículos que promovam a conscientização ambiental, incentivando ações de reciclagem e redução do consumo.",
-            "C": "Excluindo a discussão sobre questões ambientais do currículo escolar, para evitar conflitos ideológicos.",
-            "D": "Ignorando a relevância do tema, uma vez que o meio ambiente não possui impacto significativo na vida das futuras gerações."
-        },
-        "alternativaCorreta": "B"
-    },
-    {
-        "pergunta": "Quais são os benefícios e desafios da implementação da educação em tempo integral nas escolas?",
-        "alternativas": {
-            "A": "Benefícios: maior aproveitamento do tempo, melhor acompanhamento dos alunos e mais tempo para atividades extracurriculares.",
-            "B": "Benefícios: maior flexibilidade de horários, maior participação dos pais e redução da evasão escolar.",
-            "C": "Desafios: aumento de custos para a infraestrutura, dificuldades para os professores e resistência dos alunos à mudança.",
-            "D": "Desafios: falta de investimento em infraestrutura adequada, dificuldade em encontrar professores em tempo integral e desinteresse dos pais na modalidade."
-        },
-        "alternativaCorreta": "A"
-    },
-    {
-        "pergunta": "Quais são os principais fatores que influenciam a escolha da carreira dos estudantes?",
-        "alternativas": {
-            "A": "Interesses pessoais, aptidões, influência familiar e mercado de trabalho.",
-            "B": "Apenas influência familiar e mercado de trabalho.",
-            "C": "Apenas aptidões e interesses pessoais.",
-            "D": "Apenas influência política e estabilidade financeira."
-        },
-        "alternativaCorreta": "A"
-    }
-    
+        {
+          "pergunta": "Qual foi o aumento percentual de mulheres eleitas deputadas federais em 2022, em comparação com 2018?",
+          "alternativas": {
+            "A": "10%",
+            "B": "18%",
+            "C": "25%",
+            "D": "30%"
+          },
+          "alternativaCorreta": "B"
+        }
+      ]
 ]
