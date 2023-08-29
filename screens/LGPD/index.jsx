@@ -17,8 +17,6 @@ import { Circle, Defs, Ellipse, G, Path, Rect, Svg } from "react-native-svg";
 export default function LGPD({ navigation, route }) {
     const [fontsLoaded] = useFonts({
         //carrega as fontes
-        Anton: require("../../assets/fonts/Anton-Regular.ttf"),
-        Battambang: require("../../assets/fonts/Battambang-Regular.ttf"),
         InriaSans: require("../../assets/fonts/Inria_Sans_Regular_400.ttf"),
         MontserratMedium: require("../../assets/fonts/Montserrat-Medium.ttf"),
         MontserratBold: require("../../assets/fonts/Montserrat-Bold.ttf"),

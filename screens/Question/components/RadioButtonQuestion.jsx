@@ -36,11 +36,12 @@ const styles = StyleSheet.create({
   },
   containerAlternatives: {
      fontFamily: "MontserratMedium", 
-     fontSize: normalize(20), 
+     fontSize: normalize(24), 
      color: "black", 
      backgroundColor: "#7380EB", 
      padding: 12, 
      borderRadius: 12,
-     height: "20%"
+     height: "20%",
+     width: "100%",
   }
 });

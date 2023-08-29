@@ -20,10 +20,7 @@ import ButtonQuestion from "./components/button";
 import TimerTest from "./components/setInterval";
 const URL_SERVER = process.env.BACKEND_URL;
 
-Array.prototype.shuffle = function () {
-  for (var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
-  return o;
-}
+
 
 
 function sortearQuestoes() {
@@ -39,8 +36,7 @@ function sortearQuestoes() {
       questionsSelected.push(questions[i][randomNumberQuestion]);
     }
   }
-  const shuffledQuestions = questionsSelected.shuffle()
-  return shuffledQuestions;
+  return questionsSelected;
 }
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
 export default function QuestionPage({ navigation, route }) {
@@ -53,10 +49,7 @@ export default function QuestionPage({ navigation, route }) {
     estande: route.params.estande,
   };
   const [fontsLoaded] = useFonts({
-    Imprima: require("../../assets/fonts/Imprima_400.ttf"),
-    PassionOne700: require("../../assets/fonts/Passion_One_Bold_700.ttf"),
     InriaSans700: require("../../assets/fonts/Inria_Sans_Bold_700.ttf"),
-    Jomhuria: require("../../assets/fonts/Jomhuria.ttf"),
     MontserratMedium: require("../../assets/fonts/Montserrat-Medium.ttf"),
     MontserratBold: require("../../assets/fonts/Montserrat-Bold.ttf"),
   });
@@ -114,7 +107,7 @@ export default function QuestionPage({ navigation, route }) {
                   24 * numberQuestion
                 ),
                 duration: 300,
-                useNativeDriver: true,
+                useNativeDriver: false,
               }).start();
             },
           },
@@ -125,7 +118,7 @@ export default function QuestionPage({ navigation, route }) {
       Animated.timing(positionQuestions, {
         toValue: -(questionDivWidth * numberQuestion + 24 * numberQuestion),
         duration: 300,
-        useNativeDriver: true,
+        useNativeDriver: false,
       }).start();
     }
   }
@@ -204,14 +197,14 @@ export default function QuestionPage({ navigation, route }) {
           height: "75%",
           transform: [{ translateX: positionQuestions }],
         }}
-        onTouchStart={(e) => {
+        /*onTouchStart={(e) => {
           setTouchStart(e.nativeEvent.locationX);
         }}
         onTouchEnd={(e) => {
           if (touchStart - e.nativeEvent.locationX > 50) {
             nextQuestion();
           }
-        }}
+        }}*/
       >
         {questionsSelected.map((question, index) => {
           return (

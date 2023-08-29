@@ -201,7 +201,6 @@ export default function Home({ navigation, route }) {
               const parsed = handleCPF(e);
               setParsedCPF(parsed);
               cpf(e.replace(/(\D)/g, ""));
-              console.log(getcpf, parsed);
             }}
             maxLength={14}
           />
@@ -224,7 +223,6 @@ export default function Home({ navigation, route }) {
               const parsed = handleTelefone(e);
               setParsedTel(parsed);
               tel(e.replace(/(\D)/g, ""));
-              console.log(gettel, parsed);
             }}
             keyboardType="number-pad"
             maxLength={14}
@@ -380,6 +378,8 @@ export default function Home({ navigation, route }) {
               axios
                 .post(`${URL_SERVER}/verify`, {
                   cpf: getcpf,
+                  estande,
+                  email: getemail
                 })
                 .then((response) => {
                   setLoading(false);
@@ -398,10 +398,8 @@ export default function Home({ navigation, route }) {
                   const { response } = reject;
                   setLoading(false);
                   if (
-                    response.data === "Usuário já cadastrado" &&
                     response.status === 400
                   ) {
-                    console.log("Usuário já cadastrado");
                     InvalidUserAlert();
                   }
                 });

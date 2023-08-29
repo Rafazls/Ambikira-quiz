@@ -30,7 +30,7 @@ export default function Question({
   }
   return (
     <>
-      <LinearGradient colors={["#F85D17", "#F85D17"]} style={numeroQuestaoAtual > 0 ? [styles.questionView, {marginLeft: 24}] : [styles.questionView]} onLayout={questionLayout}>
+      <View style={numeroQuestaoAtual > 0 ? [styles.questionView, {marginLeft: 24}] : [styles.questionView]} onLayout={questionLayout}>
         <Text style={{ fontFamily: "MontserratMedium", fontSize: normalize(22), color: "#FFF", }}>
           Questão {numeroQuestaoAtual + 1}/6
         </Text>
@@ -43,7 +43,6 @@ export default function Question({
             question={questaoAtual.alternativas["A"]}
             alternative={"A"}
             onSelected={() => {
-              console.log('PRESSED')
               setSelected("A");
               updateQuestion("A");
             }}
@@ -53,7 +52,6 @@ export default function Question({
             alternative={"B"}
             question={questaoAtual.alternativas["B"]}
             onSelected={() => {
-              console.log('PRESSED')
               setSelected("B");
               updateQuestion("B");
             }}
@@ -63,7 +61,6 @@ export default function Question({
             alternative={"C"}
             question={questaoAtual.alternativas["C"]}
             onSelected={() => {
-              console.log('PRESSED')
               setSelected("C");
               updateQuestion("C");
             }}
@@ -73,13 +70,12 @@ export default function Question({
             alternative={"D"}
             question={questaoAtual.alternativas["D"]}
             onSelected={() => {
-              console.log('PRESSED')
               setSelected("D");
               updateQuestion("D");
             }}
           />
         </View>
-      </LinearGradient>
+      </View>
     </>
   );
 }
@@ -87,10 +83,10 @@ export default function Question({
 const styles = StyleSheet.create({
   questionView: {
     paddingHorizontal: normalize(64),
-    alignItems: 'center',
     width: "100%",
     padding: 24,
-    borderRadius: 20
+    borderRadius: 20,
+    backgroundColor: "#F85D17"
   },
   alternativesView: {
     backgroundColor: "#FF3131",
@@ -99,5 +95,6 @@ const styles = StyleSheet.create({
     marginTop: 24,
     borderRadius: 24,
     paddingVertical: 16,
+    flex: 1,
   },
 });

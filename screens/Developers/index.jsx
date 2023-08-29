@@ -9,8 +9,6 @@ import Svg, { G, Circle, Defs, Path, Ellipse } from "react-native-svg"
 
 export default function Developers({ navigation, route }) {
   const [fontsLoaded] = useFonts({
-    Battambang: require("../../assets/fonts/Battambang-Regular.ttf"),
-    Anton: require("../../assets/fonts/Anton-Regular.ttf"),
     MontserratMedium: require("../../assets/fonts/Montserrat-Medium.ttf"),
     MontserratBold: require("../../assets/fonts/Montserrat-Bold.ttf"),
   });
@@ -98,28 +96,25 @@ export default function Developers({ navigation, route }) {
         />
 </View>
 
-<Text style={{fontFamily: 'MontserratMedium', fontSize: normalize(30), color: 'black', marginTop: "15%",fontWeight: 'bold', marginLeft:'8%'}}>
-Este aplicativo foi desenvolvido por alunos do{'\n'}CEAP – Centro Educacional Assistencial Profissionalizante,{'\n'}uma das organizações apoiadas pelo Instituto Ambikira.  </Text>
+<Text style={{fontFamily: 'MontserratMedium', fontSize: normalize(32), color: 'black', marginTop: "15%", marginHorizontal: "4%", textAlign: 'center'}}>
+Este aplicativo foi desenvolvido por alunos do{'\n'}<Text style={{fontFamily: 'MontserratBold'}}>CEAP – Centro Educacional Assistencial Profissionalizante</Text>,{'\n'}uma das organizações apoiadas pelo Instituto Ambikira.  </Text>
 
 
       <View style={styles.textblock}>
-      <View >
+          <View >
             <Text style={styles.devText}>Daniel Vigano</Text>
             <Text style={styles.devText}>Felipe fernandes</Text>
             <Text style={styles.devText}>Gabriel Scarpelin</Text>
             <Text style={styles.devText}>Pedro Henrique</Text>
-            <Text style={styles.devText}>Rafael Kaue</Text>
             <Text style={styles.devText}>Vitor Vilela</Text>
-            </View>
+          </View>
             
-            <View >
+          <View >
             <Text style={styles.devText}>Eduardo Porto Bispo</Text>
-            <Text style={styles.devText}>Gabriel Galdino</Text>
             <Text style={styles.devText}>João Pedro</Text>
             <Text style={styles.devText}>Rafael Souza</Text>
-            <Text style={styles.devText}>Thiago Evangalista</Text>
             <Text style={styles.devText}>William Ramos</Text>
-            </View>
+          </View>
       </View>
 
       <TouchableOpacity style={styles.botton}
@@ -159,8 +154,8 @@ const styles = StyleSheet.create({
   devText:{
     fontSize: normalize(30),
     color:'#FFFFFF',
-    fontFamily:'Anton',
-    marginLeft:'17%',
+    fontFamily:'MontserratBold',
+    marginLeft:'5%',
     marginTop:'10%'
   },
   title:{
