@@ -175,6 +175,7 @@ export default function QuestionPage({ navigation, route }) {
   useEffect(() => {
     //Executa toda vez que a variável tempo é atualizada
     if (tempo <= 0) {
+      Timer.clearInterval();
       setTimeFinished(true);
     }
   }, [tempo]);

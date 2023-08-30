@@ -24,7 +24,7 @@ export default function FinishAlert({ endQuiz, visible }) {
         <Image source={timeFinished} style={{aspectRatio: 1, height: undefined, width: normalize(155)}} resizeMode="contain"/>
         <Text style={{fontFamily:"MontserratBold", fontSize: normalize(28), color: 'white'}}>O tempo chegou ao fim!</Text>
         <Text style={{fontFamily:"MontserratMedium", fontSize: normalize(28), color: 'white', marginTop: 16}}>Suas respostas serão enviadas e seus acertos serão contabilizados.</Text>
-        <TouchableOpacity style={{marginTop: 12}} onPress={endQuiz}>
+        <TouchableOpacity style={{marginTop: 12}} onPress={() => { endQuiz() }}>
             <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: "65%", backgroundColor: '#FFF', borderRadius: 500, paddingHorizontal: 16}}>
                 <Image source={alvo}/>
                 <Text style={{fontSize: normalize(26), color: "#BD3247", fontFamily: "MontserratMedium"}}>Pontuação</Text>

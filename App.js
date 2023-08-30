@@ -25,8 +25,9 @@ export default function App() {
   }, []);
   return (
     <NavigationContainer>
+      <StatusBar translucent={true} />
       <Stack.Navigator
-        initialRouteName="Developers"
+        initialRouteName="Introduction"
         screenOptions={{
           headerShown: false,
         }}

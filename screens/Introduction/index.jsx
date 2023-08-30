@@ -86,7 +86,7 @@ export default function Introduction({ navigation, route }) {
           você poderá responder ao quiz no estande das Assets apoiadoras do
           Ambikira. O participante com a melhor colocação em cada estande
           ganhará um encontro individual de 15 minutos, presencial ou remoto,
-          com o gestor da respectiva asset , em data a ser combinada.{"\n\n"}Os vencedores serão comunicados 
+          com o gestor da respectiva asset, em data a ser combinada.{"\n\n"}Os vencedores serão comunicados 
           por e-mail, no endereço cadastrado.{"\n\n"}Teste seus
           conhecimentos, e boa sorte!
         </Text>
