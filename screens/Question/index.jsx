@@ -154,7 +154,7 @@ export default function QuestionPage({ navigation, route }) {
     } catch (error) {
       Alert.alert(
         "Error",
-        "Ocorreu um erro no seu cadastro no banco de dados, verifique seus dados e jogue novamente: " +
+        "Ocorreu um erro no seu cadastro no banco de dados, verifique seus dados e Tente novamente: " +
           error.response.data +
           error.response,
         [
